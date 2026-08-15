@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Navodaya Naturals — Pure Superfoods, Farmer Direct</title>
+<meta name="description" content="Experience the raw vitality of nature. Navodaya Naturals brings certified organic superfoods from Indian farms directly to your table."/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          primary: "#002920",
+          "primary-container": "#173f35",
+          "on-primary": "#ffffff",
+          "on-primary-container": "#82aa9d",
+          secondary: "#4a6453",
+          "secondary-container": "#c9e7d1",
+          "on-secondary": "#ffffff",
+          tertiary: "#C6A15B",
+          "on-tertiary": "#ffffff",
+          background: "#fdf9ee",
+          "on-background": "#1c1c15",
+          surface: "#fdf9ee",
+          "surface-dim": "#dddacf",
+          "surface-container-lowest": "#ffffff",
+          "surface-container-low": "#f7f3e8",
+          "surface-container": "#f2eee3",
+          "surface-container-high": "#ece8dd",
+          "surface-container-highest": "#e6e2d8",
+          "surface-variant": "#e6e2d8",
+          "on-surface": "#1c1c15",
+          "on-surface-variant": "#414845",
+          "charcoal-text": "#252525",
+          "soft-white": "#FFFFFF",
+          outline: "#717975",
+          "outline-variant": "#c0c8c4"
+        },
+        borderRadius: {
+          DEFAULT: "0.125rem",
+          lg: "0.25rem",
+          xl: "0.5rem",
+          full: "9999px"
+        },
+        spacing: {
+          "container-max": "1280px",
+          "margin-mobile": "16px",
+          "margin-desktop": "48px",
+          "stack-sm": "12px",
+          "stack-md": "24px",
+          "stack-lg": "48px",
+          "stack-xl": "80px"
+        },
+        fontFamily: {
+          display: ["EB Garamond", "serif"],
+          body: ["Hanken Grotesk", "sans-serif"]
+        }
+      }
+    }
+  }
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: #fdf9ee;
+    color: #252525;
+  }
+  .organic-shadow { box-shadow: 0px 8px 32px rgba(0, 41, 32, 0.05); }
+  .ambient-shadow { box-shadow: 0px 4px 20px rgba(45, 71, 57, 0.06); }
+  .hover-lift {
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0px 12px 40px rgba(0, 41, 32, 0.1);
+  }
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+  #toast {
+    transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  #cartDrawer {
+    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.45s ease;
+  }
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
+</style>
+</head>
+<body class="font-body antialiased min-h-screen flex flex-col text-charcoal-text">
+
+<!-- ============ NAVIGATION ============ -->
+<nav id="navbar" class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-md border-b border-surface-variant/40">
+  <div class="flex justify-between items-center max-w-[1280px] mx-auto px-4 md:px-16 h-20">
+    <a href="#home" class="flex items-center">
+      <img alt="Navodaya Naturals — Pure by Nature" class="h-16 w-auto object-contain" src="assets/stitch_organic_superfoods_responsive_ui/logo.JPG"/>
+    </a>
+    <ul class="hidden md:flex gap-10 items-center text-body text-[15px] tracking-wide">
+      <li><a class="text-primary font-semibold border-b-2 border-primary pb-1 hover:opacity-80 transition-opacity" href="#products">Shop</a></li>
+      <li><a class="text-charcoal-text hover:text-primary transition-colors" href="#about">Our Story</a></li>
+      <li><a class="text-charcoal-text hover:text-primary transition-colors" href="#contact">Contact</a></li>
+    </ul>
+    <div class="flex items-center gap-2 md:gap-4">
+      <button id="cartBtn" class="relative text-primary hover:opacity-80 transition-opacity active:scale-95 duration-200 p-2" aria-label="Open cart">
+        <span class="material-symbols-outlined text-2xl">shopping_bag</span>
+        <span id="cartBadge" class="absolute -top-0.5 -right-0.5 bg-tertiary text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center opacity-0 scale-75 transition-all duration-200">0</span>
+      </button>
+      <button id="menuBtn" class="md:hidden text-primary p-2 active:scale-95 duration-200" aria-label="Open menu">
+        <span class="material-symbols-outlined text-2xl">menu</span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile menu overlay -->
+<div id="mobileMenu" class="fixed inset-0 z-40 bg-surface-container-lowest/95 backdrop-blur-md flex-col items-center justify-center gap-8 hidden md:hidden pt-20">
+  <div class="flex flex-col items-center gap-8 font-display text-3xl text-primary">
+    <a href="#products" class="mobile-link hover:underline underline-offset-8 decoration-tertiary">Shop</a>
+    <a href="#about" class="mobile-link hover:underline underline-offset-8 decoration-tertiary">Our Story</a>
+    <a href="#contact" class="mobile-link hover:underline underline-offset-8 decoration-tertiary">Contact</a>
+  </div>
+  <a href="tel:+918265098123" class="mobile-link text-body text-on-surface-variant border-b border-outline-variant pb-1">+91 82650 98123</a>
+</div>
+
+<!-- ============ MAIN ============ -->
+<main class="flex-grow pt-20">
+
+  <!-- ===== HERO ===== -->
+  <section id="home" class="w-full relative min-h-[80vh] md:min-h-[720px] flex items-center justify-center overflow-hidden bg-surface-container-low">
+    <div class="absolute inset-0 z-0">
+      <div class="w-full h-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC_cnynVtoqc_jzEedrM06Q52wvMFnnR2kdN_suXQhlYTi4XJnU-Fq_QE-4y2-9kleIsxmGSftdQSfMpKHH3hxEGkTwJjICJc-vMtZtiZJlMNjvb9MzIP5X8bUkDyXfaxlwmyuVuc7BQ7jE9FZJ2fJ4-fpwt6k4Uhgx8ARyoeOM9zGp4BCu7Xcbzp4xx_pSaTloemA3zI5f2zMJW7zOcrzQ02BMbHkAq8-L-ma77K1u54XXZI2Mm1GJ')"></div>
+      <div class="absolute inset-0 bg-primary/25 mix-blend-multiply"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/30"></div>
+    </div>
+    <div class="relative z-10 max-w-[1280px] w-full px-4 md:px-16 text-center flex flex-col items-center py-24 md:py-0">
+      <span class="reveal visible font-body text-[11px] md:text-xs uppercase tracking-[0.35em] text-tertiary mb-6 drop-shadow">Pure by Nature</span>
+      <h1 class="reveal visible font-display font-semibold text-5xl md:text-[68px] md:leading-[76px] text-soft-white mb-8 max-w-3xl drop-shadow-lg tracking-tight">
+        Pure Superfoods from the Indian Soil
+      </h1>
+      <p class="reveal visible reveal-delay-1 font-body text-lg md:text-xl text-soft-white/95 mb-12 max-w-2xl drop-shadow-md font-light">
+        Experience the raw vitality of nature. Our ethically sourced, certified organic superfoods are cultivated with traditional wisdom to nourish your body and soul.
+      </p>
+      <div class="reveal visible reveal-delay-2 flex flex-col sm:flex-row gap-4">
+        <a href="#products" class="bg-primary text-soft-white font-body text-xs font-bold uppercase tracking-widest py-4 px-10 rounded-xl hover-lift hover:bg-primary/90 transition-colors">
+          Shop Now
+        </a>
+        <a href="#about" class="border-2 border-soft-white/60 text-soft-white font-body text-xs font-bold uppercase tracking-widest py-4 px-10 rounded-xl hover:bg-soft-white hover:text-primary transition-all">
+          Our Story
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TRUST BAR ===== -->
+  <section class="bg-surface-container py-10 md:py-14 border-b border-surface-variant/50">
+    <div class="max-w-[1280px] mx-auto px-4 md:px-16 grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
+      <div class="flex flex-col items-center text-center gap-3">
+        <span class="material-symbols-outlined text-tertiary text-4xl">eco</span>
+        <span class="font-body text-xs font-bold uppercase tracking-[0.2em] text-charcoal-text">100% Pure Organic</span>
+      </div>
+      <div class="flex flex-col items-center text-center gap-3">
+        <span class="material-symbols-outlined text-tertiary text-4xl">verified_user</span>
+        <span class="font-body text-xs font-bold uppercase tracking-[0.2em] text-charcoal-text">FSSAI Certified</span>
+      </div>
+      <div class="flex flex-col items-center text-center gap-3">
+        <span class="material-symbols-outlined text-tertiary text-4xl">agriculture</span>
+        <span class="font-body text-xs font-bold uppercase tracking-[0.2em] text-charcoal-text">Farmer Direct</span>
+      </div>
+      <div class="flex flex-col items-center text-center gap-3">
+        <span class="material-symbols-outlined text-tertiary text-4xl">local_shipping</span>
+        <span class="font-body text-xs font-bold uppercase tracking-[0.2em] text-charcoal-text">Cash on Delivery</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PRODUCTS ===== -->
+  <section id="products" class="py-20 md:py-28 max-w-[1280px] mx-auto px-4 md:px-16">
+    <div class="flex flex-col md:flex-row md:justify-between md:items-end gap-4 mb-12 md:mb-16">
+      <div class="reveal">
+        <span class="font-body text-[11px] uppercase tracking-[0.3em] text-outline mb-3 block">Our Collection</span>
+        <h2 class="font-display text-4xl md:text-5xl text-primary tracking-tight">Featured Harvest</h2>
+      </div>
+      <a href="#contact" class="reveal reveal-delay-1 font-body text-body-md text-outline hover:text-primary transition-colors border-b border-transparent hover:border-primary pb-1 inline-flex items-center gap-2 w-fit">
+        For bulk orders, talk to us
+        <span class="material-symbols-outlined text-base">arrow_forward</span>
+      </a>
+    </div>
+
+    <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 md:gap-8">
+      <!-- Product cards injected / defined inline below -->
+    </div>
+  </section>
+
+  <!-- ===== ABOUT / MISSION ===== -->
+  <section id="about" class="bg-surface-container-low py-20 md:py-32 border-y border-surface-variant/40">
+    <div class="max-w-3xl mx-auto px-4 md:px-16 text-center flex flex-col items-center">
+      <span class="reveal material-symbols-outlined text-tertiary text-5xl mb-8">spa</span>
+      <h2 class="reveal font-display text-4xl md:text-5xl text-primary mb-8 tracking-tight">Rooted in Tradition,<br class="hidden md:block"/> Crafted for Wellness</h2>
+      <p class="reveal reveal-delay-1 font-body text-lg text-charcoal-text leading-relaxed mb-12 font-light max-w-2xl">
+        At Navodaya Naturals, we believe that true health begins at the source. We partner directly with local farmers across India to cultivate nutrient-dense superfoods using sustainable, traditional methods. Every seed, powder, and blend is a testament to our commitment to purity, authenticity, and your holistic well-being.
+      </p>
+      <div class="reveal reveal-delay-2 w-12 h-px bg-outline/50"></div>
+      <div class="reveal reveal-delay-3 grid grid-cols-3 gap-6 md:gap-12 mt-12 w-full max-w-lg">
+        <div class="flex flex-col items-center gap-1">
+          <span class="font-display text-3xl md:text-4xl text-primary">100%</span>
+          <span class="font-body text-[11px] uppercase tracking-widest text-outline text-center">Organic &amp; Pure</span>
+        </div>
+        <div class="flex flex-col items-center gap-1">
+          <span class="font-display text-3xl md:text-4xl text-primary">0</span>
+          <span class="font-body text-[11px] uppercase tracking-widest text-outline text-center">Additives</span>
+        </div>
+        <div class="flex flex-col items-center gap-1">
+          <span class="font-display text-3xl md:text-4xl text-primary">Direct</span>
+          <span class="font-body text-[11px] uppercase tracking-widest text-outline text-center">Farm to Table</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact" class="py-20 md:py-28 max-w-[1280px] mx-auto px-4 md:px-16">
+    <div class="bg-surface-container-lowest rounded-xl organic-shadow border border-surface-variant/40 overflow-hidden grid grid-cols-1 lg:grid-cols-2">
+      <div class="p-10 md:p-16 flex flex-col justify-center bg-surface-container-low">
+        <span class="reveal font-body text-[11px] uppercase tracking-[0.3em] text-tertiary mb-4 block">Get in Touch</span>
+        <h2 class="reveal font-display text-4xl md:text-5xl text-primary mb-6 tracking-tight">Let's Talk Superfoods</h2>
+        <p class="reveal reveal-delay-1 font-body text-lg text-charcoal-text font-light mb-10 max-w-md">
+          Questions, bulk orders, or wholesale enquiries — we'd love to hear from you. Our team responds within 24 hours.
+        </p>
+        <div class="reveal reveal-delay-2 flex flex-col gap-5">
+          <a href="mailto:pratyush@navodayanaturals.com" class="group flex items-center gap-4 text-charcoal-text hover:text-primary transition-colors">
+            <span class="material-symbols-outlined text-tertiary text-2xl">mail</span>
+            <span class="font-body text-body-md font-medium group-hover:underline underline-offset-4">pratyush@navodayanaturals.com</span>
+          </a>
+          <a href="tel:+918265098123" class="group flex items-center gap-4 text-charcoal-text hover:text-primary transition-colors">
+            <span class="material-symbols-outlined text-tertiary text-2xl">call</span>
+            <span class="font-body text-body-md font-medium group-hover:underline underline-offset-4">+91 82650 98123</span>
+          </a>
+          <div class="flex items-center gap-4 text-charcoal-text">
+            <span class="material-symbols-outlined text-tertiary text-2xl">schedule</span>
+            <span class="font-body text-body-md font-medium">Mon–Sat · 9 AM – 7 PM IST</span>
+          </div>
+        </div>
+      </div>
+      <div class="p-10 md:p-16 flex items-center">
+        <form id="contactForm" class="w-full flex flex-col gap-5">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div class="flex flex-col gap-2">
+              <label for="name" class="font-body text-xs font-bold uppercase tracking-widest text-outline">Name</label>
+              <input id="name" name="name" type="text" required placeholder="Your name" class="font-body text-body-md bg-surface-container-lowest border border-outline-variant rounded-lg px-4 py-3 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-all placeholder:text-outline/60"/>
+            </div>
+            <div class="flex flex-col gap-2">
+              <label for="phone" class="font-body text-xs font-bold uppercase tracking-widest text-outline">Phone</label>
+              <input id="phone" name="phone" type="tel" placeholder="+91" class="font-body text-body-md bg-surface-container-lowest border border-outline-variant rounded-lg px-4 py-3 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-all placeholder:text-outline/60"/>
+            </div>
+          </div>
+          <div class="flex flex-col gap-2">
+            <label for="subject" class="font-body text-xs font-bold uppercase tracking-widest text-outline">Subject</label>
+            <select id="subject" name="subject" class="font-body text-body-md bg-surface-container-lowest border border-outline-variant rounded-lg px-4 py-3 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-all text-charcoal-text">
+              <option>General enquiry</option>
+              <option>Bulk / wholesale order</option>
+              <option>Product question</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="flex flex-col gap-2">
+            <label for="message" class="font-body text-xs font-bold uppercase tracking-widest text-outline">Message</label>
+            <textarea id="message" name="message" rows="4" required placeholder="How can we help?" class="font-body text-body-md bg-surface-container-lowest border border-outline-variant rounded-lg px-4 py-3 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-all placeholder:text-outline/60 resize-none"></textarea>
+          </div>
+          <button type="submit" class="bg-primary text-soft-white font-body text-xs font-bold uppercase tracking-widest py-4 px-8 rounded-xl hover-lift hover:bg-primary/90 transition-colors mt-2">
+            Send Message
+          </button>
+          <p id="formStatus" class="hidden font-body text-body-md text-primary text-center"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="w-full bg-primary text-soft-white mt-auto">
+  <div class="max-w-[1280px] mx-auto px-4 md:px-16 py-16 md:py-20">
+    <div class="flex flex-col md:flex-row justify-between items-center gap-8 border-b border-soft-white/15 pb-10 mb-10">
+      <div class="flex items-center gap-4">
+        <img alt="Navodaya Naturals" class="h-16 w-auto object-contain bg-surface-container-lowest rounded-lg p-1" src="assets/stitch_organic_superfoods_responsive_ui/logo.JPG"/>
+      </div>
+      <div class="flex items-center gap-3 text-soft-white/70">
+        <span class="material-symbols-outlined">lock</span>
+        <span class="font-body text-xs uppercase tracking-[0.2em]">Secure Checkout</span>
+      </div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-8">
+      <div class="col-span-1 md:col-span-2">
+        <p class="font-display text-3xl mb-5">Navodaya Naturals</p>
+        <p class="font-body text-soft-white/75 mb-6 max-w-sm font-light leading-relaxed">
+          Bringing the purest organic superfoods from Indian farms directly to your table. Nourish your life with nature's finest.
+        </p>
+        <div class="flex flex-col gap-3 font-body text-soft-white/75">
+          <a href="mailto:pratyush@navodayanaturals.com" class="hover:text-tertiary transition-colors inline-flex items-center gap-2">
+            <span class="material-symbols-outlined text-sm">mail</span> pratyush@navodayanaturals.com
+          </a>
+          <a href="tel:+918265098123" class="hover:text-tertiary transition-colors inline-flex items-center gap-2">
+            <span class="material-symbols-outlined text-sm">call</span> +91 82650 98123
+          </a>
+        </div>
+      </div>
+      <div>
+        <h4 class="font-body text-xs font-bold text-tertiary uppercase tracking-widest mb-6">Explore</h4>
+        <ul class="flex flex-col gap-4 font-body text-soft-white/80">
+          <li><a href="#products" class="hover:text-tertiary transition-colors">Shop All</a></li>
+          <li><a href="#about" class="hover:text-tertiary transition-colors">Our Story</a></li>
+          <li><a href="#contact" class="hover:text-tertiary transition-colors">Contact Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-body text-xs font-bold text-tertiary uppercase tracking-widest mb-6">Support</h4>
+        <ul class="flex flex-col gap-4 font-body text-soft-white/80">
+          <li><a href="#contact" class="hover:text-tertiary transition-colors">Shipping &amp; Returns</a></li>
+          <li><a href="#contact" class="hover:text-tertiary transition-colors">Bulk Orders</a></li>
+          <li><a href="#contact" class="hover:text-tertiary transition-colors">FAQ</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="flex flex-col md:flex-row justify-between items-center gap-3 mt-12 pt-8 border-t border-soft-white/15">
+      <p class="font-body text-sm text-soft-white/60">© 2025 Navodaya Naturals. Purely Organic. Farmer Direct.</p>
+      <p class="font-body text-sm text-soft-white/60">Crafted with <span class="text-tertiary">☀</span> from the Indian soil</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ CART DRAWER ============ -->
+<div id="cartOverlay" class="fixed inset-0 bg-black/40 z-50 opacity-0 pointer-events-none transition-opacity duration-300"></div>
+<aside id="cartDrawer" class="fixed top-0 right-0 h-full w-full max-w-md bg-surface-container-lowest z-50 flex flex-col translate-x-full shadow-2xl">
+  <div class="flex items-center justify-between p-6 border-b border-surface-variant">
+    <h3 class="font-display text-2xl text-primary">Your Basket</h3>
+    <button id="closeCart" class="text-outline hover:text-primary transition-colors p-1" aria-label="Close cart">
+      <span class="material-symbols-outlined">close</span>
+    </button>
+  </div>
+  <div id="cartItems" class="flex-grow overflow-y-auto p-6 flex flex-col gap-4"></div>
+  <div id="cartEmpty" class="flex-grow flex flex-col items-center justify-center gap-4 text-center p-6">
+    <span class="material-symbols-outlined text-outline/50 text-6xl">shopping_bag</span>
+    <p class="font-body text-outline">Your basket is empty.<br/>Add some pure superfoods to get started.</p>
+    <button id="emptyShopBtn" class="mt-2 bg-primary text-soft-white font-body text-xs font-bold uppercase tracking-widest py-3 px-8 rounded-xl hover:bg-primary/90 transition-colors">Shop Now</button>
+  </div>
+  <div class="border-t border-surface-variant p-6 flex flex-col gap-4">
+    <div class="flex justify-between items-center">
+      <span class="font-body text-sm uppercase tracking-widest text-outline">Subtotal</span>
+      <span id="cartTotal" class="font-display text-2xl text-primary">₹0</span>
+    </div>
+    <button id="checkoutBtn" class="bg-primary text-soft-white font-body text-xs font-bold uppercase tracking-widest py-4 rounded-xl hover:bg-primary/90 transition-colors flex items-center justify-center gap-2 disabled:opacity-40 disabled:cursor-not-allowed">
+      <span class="material-symbols-outlined text-base">whatsapp</span> Checkout via WhatsApp
+    </button>
+    <p class="font-body text-xs text-outline/70 text-center">Cash on Delivery available · Free shipping over ₹499</p>
+  </div>
+</aside>
+
+<!-- ============ TOAST ============ -->
+<div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 translate-y-24 z-[60] bg-primary text-soft-white font-body text-sm font-medium px-6 py-4 rounded-xl shadow-2xl flex items-center gap-3 opacity-0 pointer-events-none max-w-[90vw]">
+  <span class="material-symbols-outlined text-tertiary">check_circle</span>
+  <span id="toastMsg">Added to basket</span>
+</div>
+
+<script>
+  // ---------- PRODUCT DATA ----------
+  const IMG = {
+    moringa: "https://lh3.googleusercontent.com/aida-public/AB6AXuDJDsvJgzgGx-KH64F6XqfhT23tRtL3J22MGEaGsgvDe8jUOp8XacVmhzTfY8ouKVkF-gTYgBCz88RkMSm7f5lbrY5T0IzoYy96uWy4I40VO5mrBHUG0p2Uf9ZbSSZjQ-SKBwmTaA8S1niEiHB4VhxtkRciaNfKAvJSJ3yJLYmasi5QZDbCwuayo6MFFcP9V7sb14rYqlFIV8qU8AUFquwalxP0rZokz7EZrpVDAaZnrFCunDbp_I__",
+    chia: "https://lh3.googleusercontent.com/aida-public/AB6AXuCfqUPeA9CVOmhjN2jfYbJFdrJp5ah54RghcQKUj80Wq8RCZQG8zhX6dqJMnNB2ajvSDtK5tucDII13jn5OiItL888JwyLgVF9HTTBYjb9vXubmNJ2mNRphQx7QamSn673oLixoraNiP6VOy4vHf8IhkEslFRDqCUU95-UUhZjQGslWZxJpTYd6l0iwKvP0HJnoMt9uqhEpCRiZpgJcoNfXxiJNPbDfvcOjwRBMbgNtBUwdfuU5HgRp",
+    basil: "https://lh3.googleusercontent.com/aida-public/AB6AXuAmS5nIVyWs3dBtq5C7wWTvr862yPtC_M-OlWEv54CH8U8PAljbqTssVxZ-fL6gtZAa7jSXMmWUwr7wjmV5kz2mUMEbltqvI8DmzLTidbVASOwyi_gqlfbu-Bj16WnV_wflW5kVq1ORbjUg9xoLTjcFyC1UtPC84jLWWez4wvad8qMAesJbxTwsxT8NsP1parrjSyoeqFz3cPargBhIPAGLT7tuoQaqf6YAZFhP4LP2hX6zg0ES-U3E",
+    tomato: "https://lh3.googleusercontent.com/aida-public/AB6AXuB-mdHj7NGpj9i7o05Z3mRiVMAEWpa0c7kmh6E5nntZ61_jPzI3ubTThRks6_LDhpegKGRF8Ge22WKrFkTfAWk7hMlSN3i3OtxEiDIsXiToJa1fxpofgZ0EvtdahfaMsS3lr2YP1yMODEDmWAjcYdHuu5VWTfGDTq0gI5HYL6ylsZ_d8ud64W92nQUBMOd0LZ9k89-P9H9SVleboJ0RcqYV34XMiUndrJV3b-KuOR8Np8c_Q8RQQhcm",
+    garlic: "https://lh3.googleusercontent.com/aida-public/AB6AXuDKxvoWtO2Kge7pctgQxAObxr6SG2Fe7DSPqk_rVuYxT0f3iecFPa-wli5c4X-B1CX4nmGk3hUt2aEkCnSdRQnHD9jBhyxMbs0qe65ut-2CwsCSB7TLfCBGbKrZqF-nHvei7OgsMhGBGmCaMGW_a6mizAu_7rVK9cgMhON84LByMaAsPDF7SMpLaYqEN2UOFK7FkXxuD0kA8dQh9NxsgAOU1O6b1098VzL8mIqSWsNrkC0bapc979sW"
+  };
+  const PRODUCTS = [
+    { id: "moringa", name: "Moringa Powder", category: "Superfoods", price: 350, img: IMG.moringa, badge: "Organic", desc: "Nutrient-dense organic moringa leaf powder, sustainably harvested." },
+    { id: "chia", name: "Chia Seeds", category: "Pantry", price: 400, img: IMG.chia, badge: "Organic", desc: "Premium raw organic chia seeds, packed with essential omega-3s." },
+    { id: "basil", name: "Dry Basil Leaves", category: "Herbs & Spices", price: 200, img: IMG.basil, badge: "Bestseller", desc: "Sun-dried organic sweet basil leaves for aromatic culinary use." },
+    { id: "tomato", name: "Tomato Powder", category: "Pantry", price: 250, img: IMG.tomato, badge: "Organic", desc: "100% pure organic dehydrated tomato powder, perfect for sauces." },
+    { id: "garlic", name: "Garlic Powder", category: "Herbs & Spices", price: 300, img: IMG.garlic, badge: "Organic", desc: "Fine organic garlic powder offering rich, robust flavor to any dish." }
+  ];
+
+  // ---------- RENDER PRODUCT GRID ----------
+  const grid = document.getElementById("productGrid");
+  grid.innerHTML = PRODUCTS.map((p, i) => `
+    <article class="group bg-surface-container-lowest rounded-xl organic-shadow hover-lift overflow-hidden flex flex-col border border-surface-variant/40 reveal reveal-delay-${i % 5}">
+      <div class="relative aspect-square bg-surface-container-low overflow-hidden">
+        <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" alt="${p.name}" src="${p.img}"/>
+        <span class="absolute top-3 left-3 bg-tertiary text-white font-body text-[10px] font-bold px-2.5 py-1 rounded uppercase tracking-widest shadow-sm">${p.badge}</span>
+      </div>
+      <div class="p-5 md:p-6 flex flex-col flex-grow text-center">
+        <span class="font-body text-[10px] text-outline uppercase tracking-widest mb-2">${p.category}</span>
+        <h3 class="font-display text-xl text-primary mb-1.5">${p.name}</h3>
+        <p class="font-body text-sm text-charcoal-text/70 mb-4 flex-grow">${p.desc}</p>
+        <div class="flex justify-between items-center pt-4 border-t border-surface-variant/50">
+          <span class="font-body text-lg font-semibold text-primary">₹${p.price}</span>
+          <button data-add="${p.id}" class="flex items-center gap-1.5 bg-primary text-soft-white font-body text-[11px] font-bold uppercase tracking-wide py-2 px-3 rounded-lg hover:bg-primary/90 hover:scale-105 active:scale-95 transition-all" aria-label="Add ${p.name} to basket">
+            <span class="material-symbols-outlined text-base">add</span> Add
+          </button>
+        </div>
+      </div>
+    </article>
+  `).join("");
+
+  // ---------- CART STATE ----------
+  let cart = JSON.parse(localStorage.getItem("nn-cart") || "[]");
+
+  const cartBtn = document.getElementById("cartBtn");
+  const cartBadge = document.getElementById("cartBadge");
+  const cartDrawer = document.getElementById("cartDrawer");
+  const cartOverlay = document.getElementById("cartOverlay");
+  const cartItems = document.getElementById("cartItems");
+  const cartEmpty = document.getElementById("cartEmpty");
+  const cartTotal = document.getElementById("cartTotal");
+  const checkoutBtn = document.getElementById("checkoutBtn");
+  const toast = document.getElementById("toast");
+  const toastMsg = document.getElementById("toastMsg");
+  let toastTimer;
+
+  function saveCart() { localStorage.setItem("nn-cart", JSON.stringify(cart)); }
+
+  function renderBadge() {
+    const count = cart.reduce((n, i) => n + i.qty, 0);
+    cartBadge.textContent = count;
+    cartBadge.classList.toggle("opacity-0", count === 0);
+    cartBadge.classList.toggle("scale-75", count === 0);
+  }
+
+  function renderCart() {
+    if (cart.length === 0) {
+      cartItems.innerHTML = "";
+      cartItems.classList.add("hidden");
+      cartEmpty.classList.remove("hidden");
+      cartTotal.textContent = "₹0";
+      checkoutBtn.disabled = true;
+    } else {
+      cartEmpty.classList.add("hidden");
+      cartItems.classList.remove("hidden");
+      cartItems.innerHTML = cart.map((item) => {
+        const p = PRODUCTS.find((x) => x.id === item.id);
+        return `
+          <div class="flex gap-4 items-center border border-surface-variant rounded-xl p-3 ambient-shadow">
+            <img class="w-16 h-16 rounded-lg object-cover" src="${p.img}" alt="${p.name}"/>
+            <div class="flex-grow">
+              <p class="font-display text-lg text-primary leading-tight">${p.name}</p>
+              <p class="font-body text-sm text-outline">₹${p.price} × ${item.qty} = <span class="text-charcoal-text font-semibold">₹${p.price * item.qty}</span></p>
+              <div class="flex items-center gap-2 mt-2">
+                <button data-dec="${item.id}" class="w-6 h-6 rounded border border-outline-variant text-outline hover:bg-surface-container transition-colors flex items-center justify-center" aria-label="Decrease">−</button>
+                <span class="font-body text-sm font-semibold w-5 text-center">${item.qty}</span>
+                <button data-inc="${item.id}" class="w-6 h-6 rounded border border-outline-variant text-outline hover:bg-surface-container transition-colors flex items-center justify-center" aria-label="Increase">+</button>
+                <button data-rm="${item.id}" class="ml-auto text-outline/60 hover:text-error transition-colors p-1" aria-label="Remove">
+                  <span class="material-symbols-outlined text-lg">delete</span>
+                </button>
+              </div>
+            </div>
+          </div>`;
+      }).join("");
+      cartTotal.textContent = "₹" + cart.reduce((n, i) => n + i.price * i.qty, 0);
+      checkoutBtn.disabled = false;
+    }
+    renderBadge();
+  }
+
+  function openCart() {
+    cartDrawer.classList.remove("translate-x-full");
+    cartOverlay.classList.remove("opacity-0", "pointer-events-none");
+    document.body.style.overflow = "hidden";
+  }
+  function closeCart() {
+    cartDrawer.classList.add("translate-x-full");
+    cartOverlay.classList.add("opacity-0", "pointer-events-none");
+    document.body.style.overflow = "";
+  }
+
+  function showToast(msg) {
+    toastMsg.textContent = msg;
+    toast.classList.remove("opacity-0", "translate-y-24");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.add("opacity-0", "translate-y-24"), 2400);
+  }
+
+  function addToCart(id) {
+    const p = PRODUCTS.find((x) => x.id === id);
+    if (!p) return;
+    const existing = cart.find((i) => i.id === id);
+    if (existing) existing.qty += 1;
+    else cart.push({ ...p, qty: 1 });
+    saveCart();
+    renderCart();
+    showToast(`${p.name} added to your basket`);
+  }
+
+  cartBtn.addEventListener("click", openCart);
+  cartOverlay.addEventListener("click", closeCart);
+  document.getElementById("closeCart").addEventListener("click", closeCart);
+  document.getElementById("emptyShopBtn").addEventListener("click", () => { closeCart(); document.getElementById("products").scrollIntoView({ behavior: "smooth" }); });
+
+  document.addEventListener("click", (e) => {
+    const add = e.target.closest("[data-add]");
+    if (add) { addToCart(add.dataset.add); return; }
+    const dec = e.target.closest("[data-dec]");
+    if (dec) {
+      const item = cart.find((i) => i.id === dec.dataset.dec);
+      if (item) { item.qty -= 1; if (item.qty <= 0) cart = cart.filter((i) => i.id !== item.id); saveCart(); renderCart(); }
+      return;
+    }
+    const inc = e.target.closest("[data-inc]");
+    if (inc) {
+      const item = cart.find((i) => i.id === inc.dataset.inc);
+      if (item) { item.qty += 1; saveCart(); renderCart(); }
+      return;
+    }
+    const rm = e.target.closest("[data-rm]");
+    if (rm) {
+      cart = cart.filter((i) => i.id !== rm.dataset.rm);
+      saveCart(); renderCart();
+      showToast("Item removed from basket");
+    }
+  });
+
+  checkoutBtn.addEventListener("click", () => {
+    if (cart.length === 0) return;
+    const lines = cart.map((i) => `• ${i.name} × ${i.qty} — ₹${i.price * i.qty}`).join("\n");
+    const total = cart.reduce((n, i) => n + i.price * i.qty, 0);
+    const msg = encodeURIComponent(`Hello Navodaya Naturals! 🌿 I'd like to place an order:\n\n${lines}\n\nTotal: ₹${total}\n\nPlease confirm availability and delivery details.`);
+    window.open(`https://wa.me/918265098123?text=${msg}`, "_blank");
+  });
+
+  // ---------- MOBILE MENU ----------
+  const mobileMenu = document.getElementById("mobileMenu");
+  const menuBtn = document.getElementById("menuBtn");
+  function toggleMenu(open) {
+    mobileMenu.classList.toggle("hidden", !open);
+    mobileMenu.classList.toggle("flex", open);
+    document.body.style.overflow = open ? "hidden" : "";
+  }
+  menuBtn.addEventListener("click", () => toggleMenu(mobileMenu.classList.contains("hidden")));
+  mobileMenu.querySelectorAll(".mobile-link").forEach((l) => l.addEventListener("click", () => toggleMenu(false)));
+
+  // ---------- CONTACT FORM (opens WhatsApp) ----------
+  const form = document.getElementById("contactForm");
+  const formStatus = document.getElementById("formStatus");
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const name = document.getElementById("name").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const subject = document.getElementById("subject").value;
+    const message = document.getElementById("message").value.trim();
+    const msg = encodeURIComponent(`Hello Navodaya Naturals!\n\nName: ${name}\nPhone: ${phone || "-"}\nSubject: ${subject}\n\n${message}`);
+    window.open(`https://wa.me/918265098123?text=${msg}`, "_blank");
+    formStatus.textContent = "Opening WhatsApp to send your message…";
+    formStatus.classList.remove("hidden");
+    form.reset();
+  });
+
+  // ---------- SCROLL REVEAL ----------
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+
+  // ---------- NAVBAR SHADOW ON SCROLL ----------
+  const navbar = document.getElementById("navbar");
+  window.addEventListener("scroll", () => {
+    navbar.classList.toggle("shadow-sm", window.scrollY > 8);
+  }, { passive: true });
+
+  // ---------- INIT ----------
+  renderCart();
+</script>
+</body>
+</html>
