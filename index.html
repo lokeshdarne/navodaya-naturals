@@ -5,6 +5,7 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Navodaya Naturals — Pure Superfoods, Farmer Direct</title>
 <meta name="description" content="Experience the raw vitality of nature. Navodaya Naturals brings certified organic superfoods from Indian farms directly to your table."/>
+<link rel="icon" type="image/jpeg" href="assets/stitch_organic_superfoods_responsive_ui/logo.JPG"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -57,8 +58,8 @@
           "stack-xl": "80px"
         },
         fontFamily: {
-          display: ["EB Garamond", "serif"],
-          body: ["Hanken Grotesk", "sans-serif"]
+          display: ["EB Garamond", "Georgia", "serif"],
+          body: [" -apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica Neue", "sans-serif"]
         }
       }
     }
@@ -100,7 +101,7 @@
 <nav id="navbar" class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-md border-b border-surface-variant/40">
   <div class="flex justify-between items-center max-w-[1280px] mx-auto px-4 md:px-16 h-20">
     <a href="#home" class="flex items-center">
-      <img alt="Navodaya Naturals — Pure by Nature" class="h-16 w-auto object-contain" src="assets/stitch_organic_superfoods_responsive_ui/logo.JPG"/>
+      <img alt="Navodaya Naturals — Pure by Nature" class="h-20 w-auto object-contain" src="assets/stitch_organic_superfoods_responsive_ui/logo.JPG"/>
     </a>
     <ul class="hidden md:flex gap-10 items-center text-body text-[15px] tracking-wide">
       <li><a class="text-primary font-semibold border-b-2 border-primary pb-1 hover:opacity-80 transition-opacity" href="#products">Shop</a></li>
@@ -108,10 +109,6 @@
       <li><a class="text-charcoal-text hover:text-primary transition-colors" href="#contact">Contact</a></li>
     </ul>
     <div class="flex items-center gap-2 md:gap-4">
-      <button id="cartBtn" class="relative text-primary hover:opacity-80 transition-opacity active:scale-95 duration-200 p-2" aria-label="Open cart">
-        <span class="material-symbols-outlined text-2xl">shopping_bag</span>
-        <span id="cartBadge" class="absolute -top-0.5 -right-0.5 bg-tertiary text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center opacity-0 scale-75 transition-all duration-200">0</span>
-      </button>
       <button id="menuBtn" class="md:hidden text-primary p-2 active:scale-95 duration-200" aria-label="Open menu">
         <span class="material-symbols-outlined text-2xl">menu</span>
       </button>
@@ -135,7 +132,7 @@
   <!-- ===== HERO ===== -->
   <section id="home" class="w-full relative min-h-[80vh] md:min-h-[720px] flex items-center justify-center overflow-hidden bg-surface-container-low">
     <div class="absolute inset-0 z-0">
-      <div class="w-full h-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC_cnynVtoqc_jzEedrM06Q52wvMFnnR2kdN_suXQhlYTi4XJnU-Fq_QE-4y2-9kleIsxmGSftdQSfMpKHH3hxEGkTwJjICJc-vMtZtiZJlMNjvb9MzIP5X8bUkDyXfaxlwmyuVuc7BQ7jE9FZJ2fJ4-fpwt6k4Uhgx8ARyoeOM9zGp4BCu7Xcbzp4xx_pSaTloemA3zI5f2zMJW7zOcrzQ02BMbHkAq8-L-ma77K1u54XXZI2Mm1GJ')"></div>
+      <div class="w-full h-full bg-cover bg-center" style="background-image: url('top_background.jpg')"></div>
       <div class="absolute inset-0 bg-primary/25 mix-blend-multiply"></div>
       <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/30"></div>
     </div>
@@ -242,6 +239,14 @@
             <span class="material-symbols-outlined text-tertiary text-2xl">call</span>
             <span class="font-body text-body-md font-medium group-hover:underline underline-offset-4">+91 82650 98123</span>
           </a>
+          <a href="https://wa.me/918265098123" target="_blank" class="group flex items-center gap-4 text-charcoal-text hover:text-primary transition-colors">
+            <span class="material-symbols-outlined text-tertiary text-2xl">whatsapp</span>
+            <span class="font-body text-body-md font-medium group-hover:underline underline-offset-4">WhatsApp</span>
+          </a>
+          <div class="flex items-center gap-4 text-charcoal-text">
+            <span class="material-symbols-outlined text-tertiary text-2xl">location_on</span>
+            <span class="font-body text-body-md font-medium">Yavatmal, India</span>
+          </div>
           <div class="flex items-center gap-4 text-charcoal-text">
             <span class="material-symbols-outlined text-tertiary text-2xl">schedule</span>
             <span class="font-body text-body-md font-medium">Mon–Sat · 9 AM – 7 PM IST</span>
@@ -273,9 +278,9 @@
             <label for="message" class="font-body text-xs font-bold uppercase tracking-widest text-outline">Message</label>
             <textarea id="message" name="message" rows="4" required placeholder="How can we help?" class="font-body text-body-md bg-surface-container-lowest border border-outline-variant rounded-lg px-4 py-3 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-all placeholder:text-outline/60 resize-none"></textarea>
           </div>
-          <button type="submit" class="bg-primary text-soft-white font-body text-xs font-bold uppercase tracking-widest py-4 px-8 rounded-xl hover-lift hover:bg-primary/90 transition-colors mt-2">
-            Send Message
-          </button>
+          <a href="https://wa.me/918265098123" target="_blank" class="bg-primary text-soft-white font-body text-xs font-bold uppercase tracking-widest py-4 px-8 rounded-xl hover-lift hover:bg-primary/90 transition-colors mt-2 text-center inline-block">
+            <span class="material-symbols-outlined text-base align-middle mr-2">whatsapp</span>Send via WhatsApp
+          </a>
           <p id="formStatus" class="hidden font-body text-body-md text-primary text-center"></p>
         </form>
       </div>
@@ -288,7 +293,7 @@
   <div class="max-w-[1280px] mx-auto px-4 md:px-16 py-16 md:py-20">
     <div class="flex flex-col md:flex-row justify-between items-center gap-8 border-b border-soft-white/15 pb-10 mb-10">
       <div class="flex items-center gap-4">
-        <img alt="Navodaya Naturals" class="h-16 w-auto object-contain bg-surface-container-lowest rounded-lg p-1" src="assets/stitch_organic_superfoods_responsive_ui/logo.JPG"/>
+        <img alt="Navodaya Naturals" class="h-24 w-auto object-contain bg-surface-container-lowest rounded-lg p-2" src="assets/stitch_organic_superfoods_responsive_ui/logo.JPG"/>
       </div>
       <div class="flex items-center gap-3 text-soft-white/70">
         <span class="material-symbols-outlined">lock</span>
@@ -308,6 +313,9 @@
           <a href="tel:+918265098123" class="hover:text-tertiary transition-colors inline-flex items-center gap-2">
             <span class="material-symbols-outlined text-sm">call</span> +91 82650 98123
           </a>
+          <div class="flex items-center gap-2 text-soft-white/75">
+            <span class="material-symbols-outlined text-sm">location_on</span> Yavatmal, India
+          </div>
         </div>
       </div>
       <div>
@@ -377,11 +385,11 @@
     garlic: "https://lh3.googleusercontent.com/aida-public/AB6AXuDKxvoWtO2Kge7pctgQxAObxr6SG2Fe7DSPqk_rVuYxT0f3iecFPa-wli5c4X-B1CX4nmGk3hUt2aEkCnSdRQnHD9jBhyxMbs0qe65ut-2CwsCSB7TLfCBGbKrZqF-nHvei7OgsMhGBGmCaMGW_a6mizAu_7rVK9cgMhON84LByMaAsPDF7SMpLaYqEN2UOFK7FkXxuD0kA8dQh9NxsgAOU1O6b1098VzL8mIqSWsNrkC0bapc979sW"
   };
   const PRODUCTS = [
-    { id: "moringa", name: "Moringa Powder", category: "Superfoods", price: 350, img: IMG.moringa, badge: "Organic", desc: "Nutrient-dense organic moringa leaf powder, sustainably harvested." },
-    { id: "chia", name: "Chia Seeds", category: "Pantry", price: 400, img: IMG.chia, badge: "Organic", desc: "Premium raw organic chia seeds, packed with essential omega-3s." },
-    { id: "basil", name: "Dry Basil Leaves", category: "Herbs & Spices", price: 200, img: IMG.basil, badge: "Bestseller", desc: "Sun-dried organic sweet basil leaves for aromatic culinary use." },
-    { id: "tomato", name: "Tomato Powder", category: "Pantry", price: 250, img: IMG.tomato, badge: "Organic", desc: "100% pure organic dehydrated tomato powder, perfect for sauces." },
-    { id: "garlic", name: "Garlic Powder", category: "Herbs & Spices", price: 300, img: IMG.garlic, badge: "Organic", desc: "Fine organic garlic powder offering rich, robust flavor to any dish." }
+    { id: "moringa", name: "Moringa Powder", category: "Superfoods", price: null, img: IMG.moringa, badge: "Coming Soon", desc: "Nutrient-dense organic moringa leaf powder, sustainably harvested." },
+    { id: "chia", name: "Chia Seeds", category: "Pantry", price: null, img: IMG.chia, badge: "Coming Soon", desc: "Premium raw organic chia seeds, packed with essential omega-3s." },
+    { id: "basil", name: "Dry Basil Leaves", category: "Herbs & Spices", price: null, img: IMG.basil, badge: "Coming Soon", desc: "Sun-dried organic sweet basil leaves for aromatic culinary use." },
+    { id: "tomato", name: "Tomato Powder", category: "Pantry", price: null, img: IMG.tomato, badge: "Coming Soon", desc: "100% pure organic dehydrated tomato powder, perfect for sauces." },
+    { id: "garlic", name: "Garlic Powder", category: "Herbs & Spices", price: null, img: IMG.garlic, badge: "Coming Soon", desc: "Fine organic garlic powder offering rich, robust flavor to any dish." }
   ];
 
   // ---------- RENDER PRODUCT GRID ----------
@@ -396,11 +404,8 @@
         <span class="font-body text-[10px] text-outline uppercase tracking-widest mb-2">${p.category}</span>
         <h3 class="font-display text-xl text-primary mb-1.5">${p.name}</h3>
         <p class="font-body text-sm text-charcoal-text/70 mb-4 flex-grow">${p.desc}</p>
-        <div class="flex justify-between items-center pt-4 border-t border-surface-variant/50">
-          <span class="font-body text-lg font-semibold text-primary">₹${p.price}</span>
-          <button data-add="${p.id}" class="flex items-center gap-1.5 bg-primary text-soft-white font-body text-[11px] font-bold uppercase tracking-wide py-2 px-3 rounded-lg hover:bg-primary/90 hover:scale-105 active:scale-95 transition-all" aria-label="Add ${p.name} to basket">
-            <span class="material-symbols-outlined text-base">add</span> Add
-          </button>
+        <div class="flex justify-center items-center pt-4 border-t border-surface-variant/50">
+          <span class="font-display text-xl font-semibold text-tertiary">Coming Soon</span>
         </div>
       </div>
     </article>
@@ -494,14 +499,14 @@
     showToast(`${p.name} added to your basket`);
   }
 
-  cartBtn.addEventListener("click", openCart);
+  if (cartBtn) cartBtn.addEventListener("click", openCart);
   cartOverlay.addEventListener("click", closeCart);
   document.getElementById("closeCart").addEventListener("click", closeCart);
   document.getElementById("emptyShopBtn").addEventListener("click", () => { closeCart(); document.getElementById("products").scrollIntoView({ behavior: "smooth" }); });
 
   document.addEventListener("click", (e) => {
     const add = e.target.closest("[data-add]");
-    if (add) { addToCart(add.dataset.add); return; }
+    if (add) { showToast("Coming soon! Sign up via WhatsApp to be notified."); return; }
     const dec = e.target.closest("[data-dec]");
     if (dec) {
       const item = cart.find((i) => i.id === dec.dataset.dec);
@@ -529,6 +534,9 @@
     const msg = encodeURIComponent(`Hello Navodaya Naturals! 🌿 I'd like to place an order:\n\n${lines}\n\nTotal: ₹${total}\n\nPlease confirm availability and delivery details.`);
     window.open(`https://wa.me/918265098123?text=${msg}`, "_blank");
   });
+
+  // Hide cart drawer on load since this is pre-launch
+  if (document.getElementById("cartDrawer")) document.getElementById("cartDrawer").style.display = "none";
 
   // ---------- MOBILE MENU ----------
   const mobileMenu = document.getElementById("mobileMenu");
