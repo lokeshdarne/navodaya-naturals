@@ -694,6 +694,62 @@
   .stat-block strong { display: block; font-family: var(--font-serif); font-size: 26px; color: var(--brand); font-weight: 500; }
   .stat-block span { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); }
 
+  /* ============ PHILOSOPHY ============ */
+  .philosophy { position: relative; padding: 96px 0; overflow: hidden; }
+  .philosophy::before {
+    content: "";
+    position: absolute;
+    top: -120px;
+    right: -140px;
+    width: 460px;
+    height: 460px;
+    background: radial-gradient(circle at center, rgba(200, 164, 94, 0.16), transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .philosophy::after {
+    content: "";
+    position: absolute;
+    bottom: -160px;
+    left: -160px;
+    width: 420px;
+    height: 420px;
+    background: radial-gradient(circle at center, rgba(29, 92, 67, 0.12), transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .philosophy > .container { position: relative; z-index: 1; }
+  .philosophy-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  @media (min-width: 768px) { .philosophy-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1024px) { .philosophy-grid { grid-template-columns: repeat(3, 1fr); } }
+  .philosophy-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: 32px 24px;
+    text-align: center;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s, border-color 0.3s;
+  }
+  .philosophy-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-float); border-color: var(--brand-soft); }
+  .philosophy-ico {
+    width: 60px; height: 60px;
+    margin: 0 auto 18px;
+    display: grid; place-items: center;
+    background: var(--accent-soft);
+    color: var(--brand);
+    border-radius: 20px;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s, color 0.3s;
+  }
+  .philosophy-card:hover .philosophy-ico { transform: scale(1.1) rotate(-2deg); background: var(--brand); color: #fff; }
+  .philosophy-card h3 { font-size: 18px; font-weight: 600; margin-bottom: 10px; }
+  .philosophy-card p { font-size: 14px; color: var(--ink-soft); font-weight: 300; line-height: 1.7; }
+
   /* ============ CONTACT ============ */
   .contact { padding: 0 0 96px; }
   .contact-card {
@@ -818,6 +874,23 @@
     letter-spacing: -0.01em;
     color: #fff;
   }
+  .footer-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: rgba(200, 164, 94, 0.12);
+    border: 1px solid rgba(200, 164, 94, 0.28);
+    padding: 6px 14px;
+    border-radius: var(--radius-full);
+    width: fit-content;
+  }
+  .footer-pill .pulse { background: var(--accent); }
   .footer-brand p { font-weight: 300; font-size: 14px; line-height: 1.8; max-width: 300px; }
   .footer h4 { color: #fff; font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 20px; }
   .footer ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
@@ -921,6 +994,7 @@
 
       <div class="nav-links">
         <a href="#collection">Collection</a>
+        <a href="#philosophy">Philosophy</a>
         <a href="#story">Our Story</a>
         <a href="#contact">Contact</a>
       </div>
@@ -936,6 +1010,7 @@
 <!-- Mobile menu -->
 <div class="mobile-menu" id="mobileMenu">
   <a href="#collection">Collection</a>
+  <a href="#philosophy">Philosophy</a>
   <a href="#story">Our Story</a>
   <a href="#contact">Contact</a>
   <a href="#notify" style="margin-top:16px;" class="nav-cta">Get Notified</a>
@@ -999,6 +1074,34 @@
       </div>
     </div>
   </div>
+
+  <!-- ============ PHILOSOPHY / WHY ORGANIC ============ -->
+  <section class="philosophy" id="philosophy">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Our Philosophy</span>
+        <h2>Why organic isn't a label — it's a promise</h2>
+        <p>We don't just certify. We cultivate. Every decision — from seed to sachet — is made to protect what nature gave us.</p>
+      </div>
+      <div class="philosophy-grid">
+        <article class="philosophy-card reveal">
+          <div class="philosophy-ico"><svg class="ico ico-24" aria-hidden="true"><use href="#i-leaf"/></svg></div>
+          <h3>Soil First</h3>
+          <p>We partner with farms that regenerate soil health through crop rotation, composting, and zero synthetic inputs — so the land gives back more each season.</p>
+        </article>
+        <article class="philosophy-card reveal">
+          <div class="philosophy-ico"><svg class="ico ico-24" aria-hidden="true"><use href="#i-sun"/></svg></div>
+          <h3>Sun-Dried, Not Heat-Blasted</h3>
+          <p>Our moringa, basil, and turmeric are dried in open air under the Indian sun — preserving volatile oils, enzymes, and colour that industrial ovens destroy.</p>
+        </article>
+        <article class="philosophy-card reveal">
+          <div class="philosophy-ico"><svg class="ico ico-24" aria-hidden="true"><use href="#i-shield"/></svg></div>
+          <h3>Batch-Tested Transparency</h3>
+          <p>Every harvest lot is lab-tested for heavy metals, microbes, and pesticide residue. Results will be published per batch — so you know exactly what you're eating.</p>
+        </article>
+      </div>
+    </div>
+  </section>
 
   <!-- ============ COLLECTION / COMING SOON ============ -->
   <section class="products" id="collection">
@@ -1137,6 +1240,7 @@
         </div>
         <div class="footer-brand-text">
           <span class="footer-name">Navodaya Naturals</span>
+          <span class="footer-pill"><span class="pulse"></span> Launching Soon</span>
           <p>Bringing the purest organic superfoods from Indian farms directly to your table.</p>
         </div>
       </div>
@@ -1144,6 +1248,7 @@
         <h4>Explore</h4>
         <ul>
           <li><a href="#collection">The Collection</a></li>
+          <li><a href="#philosophy">Philosophy</a></li>
           <li><a href="#story">Our Story</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
@@ -1162,6 +1267,14 @@
           <li><a href="#contact">Shipping &amp; Returns</a></li>
           <li><a href="#contact">Bulk Orders</a></li>
           <li><a href="#contact">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Follow Us</h4>
+        <ul>
+          <li><a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://facebook.com" target="_blank" rel="noopener">Facebook</a></li>
+          <li><a href="https://wa.me/918265098123" target="_blank" rel="noopener">WhatsApp Channel</a></li>
         </ul>
       </div>
     </div>
