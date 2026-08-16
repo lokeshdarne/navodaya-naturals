@@ -449,9 +449,12 @@
     .hero h1 { font-size: clamp(30px, 9.5vw, 44px); }
   }
   .hero h1 .serif {
+    display: inline-block;
     font-family: var(--font-serif);
     font-style: italic;
     font-weight: 400;
+    line-height: 1.25;
+    padding: 0 0.04em 0.14em;
     background: linear-gradient(120deg, #f3ead8, var(--accent));
     -webkit-background-clip: text;
     background-clip: text;
@@ -660,8 +663,8 @@
   .notify-note { font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 14px; }
 
   /* ============ STORY / ABOUT ============ */
-  .story { padding: 96px 0; background: var(--surface); border-radius: var(--radius-xl); margin: 0 24px 96px; box-shadow: var(--shadow-soft); }
-  @media (min-width: 768px) { .story { margin: 0 48px 96px; border-radius: var(--radius-xl); padding: 104px 64px; } }
+  .story { padding: 96px 0; background: var(--surface); border-radius: var(--radius-xl); box-shadow: var(--shadow-soft); }
+  @media (min-width: 768px) { .story { border-radius: var(--radius-xl); padding: 104px 0; } }
   .story-grid {
     display: grid;
     grid-template-columns: 1fr;
