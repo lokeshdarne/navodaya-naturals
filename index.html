@@ -34,10 +34,10 @@
     --ink: #141414;
     --ink-soft: #5b5b5b;
     --ink-faint: #86827a;
-    --brand: #1d5c43;
-    --brand-deep: #0f3d2e;
-    --brand-soft: #d9e8dd;
-    --accent: #c8a45e;
+    --brand: #2f7d5c;
+    --brand-deep: #1d5c43;
+    --brand-soft: #e9f3ec;
+    --accent: #c89d54;
     --accent-soft: #f3ead8;
     --line: #e8e5dd;
     --line-strong: #d8d4c9;
@@ -193,59 +193,64 @@
     left: 0;
     right: 0;
     z-index: 100;
+    background: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(18px) saturate(1.4);
+    -webkit-backdrop-filter: blur(18px) saturate(1.4);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.18);
     transition: background 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   }
   .navbar-scrolled {
-    background: rgba(255, 255, 255, 0.82);
+    background: rgba(255, 255, 255, 0.84);
     backdrop-filter: saturate(180%) blur(20px);
     -webkit-backdrop-filter: saturate(180%) blur(20px);
-    box-shadow: 0 1px 0 var(--line), 0 6px 24px rgba(20, 32, 24, 0.05);
+    box-shadow: 0 1px 0 rgba(20, 32, 24, 0.06), 0 8px 30px rgba(20, 32, 24, 0.06);
   }
   .nav-inner {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 24px;
+    justify-content: flex-start;
+    gap: 22px;
     padding: 18px 0;
     transition: padding 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   }
   .navbar-scrolled .nav-inner { padding: 11px 0; }
 
   /* Logo + brand name — left aligned, larger */
-  .nav-logo { display: flex; align-items: center; gap: 14px; }
+  .nav-logo { display: flex; align-items: center; gap: 14px; min-width: 0; }
   .nav-logo img {
-    height: 64px;
+    height: 72px;
     width: auto;
     object-fit: contain;
     filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.18));
     transition: height 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   }
-  .navbar-scrolled .nav-logo img { height: 56px; }
+  .navbar-scrolled .nav-logo img { height: 62px; }
   .nav-logo:hover img { transform: scale(1.04); }
   @media (max-width: 480px) {
-    .nav-logo img { height: 54px; }
-    .navbar-scrolled .nav-logo img { height: 48px; }
+    .nav-logo img { height: 58px; }
+    .navbar-scrolled .nav-logo img { height: 52px; }
   }
   .nav-name {
     font-family: var(--font-heading);
     font-weight: 600;
-    font-size: 20px;
+    font-size: 30px;
     line-height: 1.1;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.02em;
     color: #fff;
     transition: color 0.3s, font-size 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    white-space: nowrap;
   }
-  .navbar-scrolled .nav-name { color: var(--ink); font-size: 19px; }
+  .navbar-scrolled .nav-name { color: var(--ink); font-size: 24px; }
   @media (max-width: 480px) {
-    .nav-name { font-size: 17px; }
-    .navbar-scrolled .nav-name { font-size: 16px; }
+    .nav-name { font-size: 20px; }
+    .navbar-scrolled .nav-name { font-size: 18px; }
   }
 
-  .nav-links { display: none; align-items: center; gap: 36px; }
+  .nav-links { display: none; align-items: center; gap: 36px; margin-left: auto; margin-right: auto; }
   .nav-links a {
     font-size: 14px;
     font-weight: 500;
-    color: rgba(255, 255, 255, 0.78);
+    color: rgba(255, 255, 255, 0.86);
     transition: color 0.2s;
   }
   .nav-links a:hover { color: #fff; }
@@ -437,12 +442,14 @@
     50%      { opacity: 0.6; box-shadow: 0 0 0 6px rgba(200,164,94,0); }
   }
     .hero h1 {
-    font-size: clamp(34px, 8vw, 84px);
+    font-size: clamp(34px, 7vw, 84px);
     font-weight: 600;
     color: #fff;
     margin-bottom: 24px;
-    max-width: 100%;
+    max-width: 1000px;
+    width: min(100%, 1000px);
     overflow-wrap: break-word;
+    line-height: 0.92;
     padding-bottom: 4px;
   }
   @media (max-width: 520px) {
@@ -453,13 +460,14 @@
     font-family: var(--font-serif);
     font-style: italic;
     font-weight: 400;
-    line-height: 1.25;
-    padding: 0 0.04em 0.14em;
+    line-height: 0.9;
+    padding: 0.08em 0 0.12em;
     background: linear-gradient(120deg, #f3ead8, var(--accent));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
+    white-space: normal;
   }
   .hero-sub {
     font-size: clamp(16px, 2vw, 20px);
@@ -860,9 +868,9 @@
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
   }
   .footer-logo-card img {
-    height: 80px;
+    height: 120px;
     width: auto;
-    max-width: 200px;
+    max-width: 220px;
     object-fit: contain;
     display: block;
   }
@@ -1040,7 +1048,7 @@
       <div class="hero-metrics reveal">
         <div class="metric"><strong>100%</strong><span>Certified Organic</span></div>
         <div class="metric"><strong>0</strong><span>Additives</span></div>
-        <div class="metric"><strong>250+</strong><span>Partner Farmers</span></div>
+        <div class="metric"><strong>10+</strong><span>Partner Farmers</span></div>
       </div>
     </div>
     <a href="#collection" class="hero-scroll" aria-label="Scroll to explore">
@@ -1236,7 +1244,7 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="footer-logo-card">
-          <img src="assets/images/logo.JPG" alt="Navodaya Naturals logo"/>
+          <img src="assets/logos/top_logo.png" alt="Navodaya Naturals logo"/>
         </div>
         <div class="footer-brand-text">
           <span class="footer-name">Navodaya Naturals</span>
@@ -1309,7 +1317,7 @@
     basil: "https://lh3.googleusercontent.com/aida-public/AB6AXuAmS5nIVyWs3dBtq5C7wWTvr862yPtC_M-OlWEv54CH8U8PAljbqTssVxZ-fL6gtZAa7jSXMmWUwr7wjmV5kz2mUMEbltqvI8DmzLTidbVASOwyi_gqlfbu-Bj16WnV_wflW5kVq1ORbjUg9xoLTjcFyC1UtPC84jLWWez4wvad8qMAesJbxTwsxT8NsP1parrjSyoeqFz3cPargBhIPAGLT7tuoQaqf6YAZFhP4LP2hX6zg0ES-U3E",
     tomato: "https://lh3.googleusercontent.com/aida-public/AB6AXuB-mdHj7NGpj9i7o05Z3mRiVMAEWpa0c7kmh6E5nntZ61_jPzI3ubTThRks6_LDhpegKGRF8Ge22WKrFkTfAWk7hMlSN3i3OtxEiDIsXiToJa1fxpofgZ0EvtdahfaMsS3lr2YP1yMODEDmWAjcYdHuu5VWTfGDTq0gI5HYL6ylsZ_d8ud64W92nQUBMOd0LZ9k89-P9H9SVleboJ0RcqYV34XMiUndrJV3b-KuOR8Np8c_Q8RQQhcm",
     garlic: "https://lh3.googleusercontent.com/aida-public/AB6AXuDKxvoWtO2Kge7pctgQxAObxr6SG2Fe7DSPqk_rVuYxT0f3iecFPa-wli5c4X-B1CX4nmGk3hUt2aEkCnSdRQnHD9jBhyxMbs0qe65ut-2CwsCSB7TLfCBGbKrZqF-nHvei7OgsMhGBGmCaMGW_a6mizAu_7rVK9cgMhON84LByMaAsPDF7SMpLaYqEN2UOFK7FkXxuD0kA8dQh9NxsgAOU1O6b1098VzL8mIqSWsNrkC0bapc979sW",
-    turmeric: "https://lh3.googleusercontent.com/aida-public/AB6AXuAmS5nIVyWs3dBtq5C7wWTvr862yPtC_M-OlWEv54CH8U8PAljbqTssVxZ-fL6gtZAa7jSXMmWUwr7wjmV5kz2mUMEbltqvI8DmzLTidbVASOwyi_gqlfbu-Bj16WnV_wflW5kVq1ORbjUg9xoLTjcFyC1UtPC84jLWWez4wvad8qMAesJbxTwsxT8NsP1parrjSyoeqFz3cPargBhIPAGLT7tuoQaqf6YAZFhP4LP2hX6zg0ES-U3E"
+    turmeric: "assets/images/turmeric.jpg"
   };
   const PRODUCTS = [
     { id: "moringa", name: "Moringa Powder", category: "Superfoods", img: IMG.moringa, desc: "Nutrient-dense organic moringa leaf powder, harvested at dawn and gently air-dried." },
