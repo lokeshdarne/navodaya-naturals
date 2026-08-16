@@ -6,9 +6,14 @@
 <title>Navodaya Naturals — Pure Superfoods, Farmer Direct</title>
 <meta name="description" content="Experience the raw vitality of nature. Navodaya Naturals brings certified organic superfoods harvested fresh from Indian farms, straight to your doorstep."/>
 <meta name="theme-color" content="#0f3d2e"/>
+<meta name="color-scheme" content="light"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
 <meta name="og:title" content="Navodaya Naturals"/>
 <meta name="og:description" content="Certified organic superfoods, harvested fresh from Indian farms. Launching soon."/>
 <meta name="og:type" content="website"/>
+<meta name="og:image" content="assets/images/hero-banner.jpg"/>
+<meta name="twitter:card" content="summary_large_image"/>
 <link rel="icon" type="image/png" href="assets/images/logo.png"/>
 
 <!-- Fonts: Apple SF Pro-inspired stack with elegant fallbacks -->
@@ -53,6 +58,7 @@
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     text-size-adjust: 100%;
+    scroll-padding-top: 96px;
   }
   body {
     font-family: var(--font-body);
@@ -183,14 +189,16 @@
   }
   .nav-logo { display: flex; align-items: center; gap: 12px; }
   .nav-logo img {
-    height: 46px;
-    width: 46px;
+    height: 48px;
+    width: 48px;
     object-fit: contain;
     border-radius: var(--radius-sm);
     background: var(--bg-elevated);
-    padding: 4px;
+    padding: 6px;
     box-shadow: var(--shadow-card);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   }
+  .nav-logo:hover img { transform: scale(1.05) rotate(-2deg); }
   .nav-name { font-family: var(--font-heading); font-weight: 600; font-size: 15px; color: var(--ink); }
 
   .nav-links { display: none; align-items: center; gap: 36px; }
@@ -271,13 +279,17 @@
   }
   .hero-media {
     position: absolute;
-    inset: 0;
+    top: -15%;
+    left: 0;
+    right: 0;
+    bottom: -15%;
     z-index: 0;
     background-image: url("assets/images/hero-banner.jpg");
     background-size: cover;
     background-position: center 32%;
     opacity: 0.5;
     filter: saturate(0.85);
+    will-change: transform;
   }
   .hero-media::before {
     content: "";
@@ -304,6 +316,47 @@
     height: 160px;
     background: radial-gradient(60% 100% at 50% 100%, rgba(15, 61, 46, 0.9), transparent 78%);
     pointer-events: none;
+  }
+  .hero-scroll {
+    position: absolute;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    animation: float 3s ease-in-out infinite;
+  }
+  .hero-scroll .mouse {
+    width: 22px;
+    height: 36px;
+    border: 1.5px solid rgba(255, 255, 255, 0.4);
+    border-radius: 999px;
+    position: relative;
+  }
+  .hero-scroll .mouse::after {
+    content: "";
+    position: absolute;
+    top: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 3px;
+    height: 7px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.7);
+    animation: scrolldot 1.8s ease-in-out infinite;
+  }
+  @keyframes scrolldot {
+    0%   { opacity: 0; top: 6px; }
+    40%  { opacity: 1; }
+    80%  { opacity: 0; top: 18px; }
+    100% { opacity: 0; }
   }
   .hero-inner {
     position: relative;
@@ -478,7 +531,9 @@
     border-radius: 18px;
     font-size: 24px;
     box-shadow: var(--shadow-card);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s, color 0.3s;
   }
+  .trust-item:hover .trust-ico { transform: scale(1.1) rotate(-3deg); background: var(--brand); color: #fff; }
   .trust-item strong { font-size: 14px; font-weight: 600; }
   .trust-item span { font-size: 12px; color: var(--ink-faint); }
 
@@ -514,7 +569,9 @@
     background: var(--surface-soft);
   }
   .product-media img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
-  .product-card:hover .product-media img { transform: scale(1.06); }
+  .product-card:hover .product-media img { transform: scale(1.08); }
+  .product-card .product-body { transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+  .product-card:hover .product-body { transform: translateY(-4px); }
   .soon-badge {
     position: absolute;
     top: 14px;
@@ -896,6 +953,10 @@
         </div>
       </div>
     </div>
+    <a href="#collection" class="hero-scroll" aria-label="Scroll to explore">
+      <span class="mouse"></span>
+      <span>Scroll</span>
+    </a>
   </section>
 
   <!-- ============ TRUST BAR ============ -->
@@ -1097,6 +1158,9 @@
 <!-- Toast -->
 <div id="toast" aria-live="polite" style="position: fixed; left: 50%; bottom: 88px; transform: translateX(-50%) translateY(20px); background: var(--brand-deep); color: #fff; font-size: 14px; font-weight: 500; padding: 14px 22px; border-radius: 999px; box-shadow: var(--shadow-float); opacity: 0; transition: all 0.4s cubic-bezier(0.16,1,0.3,1); z-index: 200; pointer-events: none;"></div>
 
+<!-- Back to top -->
+<button id="backTop" aria-label="Back to top" style="position: fixed; right: 20px; bottom: 20px; z-index: 90; width: 48px; height: 48px; border-radius: 999px; background: var(--brand); color: #fff; font-size: 20px; box-shadow: var(--shadow-float); opacity: 0; transform: translateY(16px) scale(0.9); pointer-events: none; transition: all 0.35s cubic-bezier(0.16,1,0.3,1);">↑</button>
+
 <script>
   // ---------- PRODUCT DATA (pre-launch preview) ----------
   const IMG = {
@@ -1117,7 +1181,7 @@
   // ---------- RENDER PRODUCT GRID ----------
   const grid = document.getElementById("productGrid");
   grid.innerHTML = PRODUCTS.map((p, i) => `
-    <article class="product-card reveal">
+    <article class="product-card reveal reveal-delay-${(i % 5) + 1}">
       <div class="product-media">
         <img alt="${p.name}" src="${p.img}" loading="lazy" decoding="async"/>
         <span class="soon-badge"><span class="pulse"></span> Coming Soon</span>
@@ -1136,14 +1200,30 @@
   // ---------- NAVBAR SCROLL + SCROLL PROGRESS + MOBILE MENU ----------
   const navbar = document.getElementById("navbar");
   const scrollProgress = document.getElementById("scrollProgress");
+  const heroMedia = document.querySelector(".hero-media");
+  let ticking = false;
   window.addEventListener("scroll", () => {
-    navbar.classList.toggle("navbar-scrolled", window.scrollY > 12);
-    const h = document.documentElement.scrollHeight - window.innerHeight;
-    scrollProgress.style.width = (window.scrollY / h) * 100 + "%";
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        navbar.classList.toggle("navbar-scrolled", window.scrollY > 12);
+        const h = document.documentElement.scrollHeight - window.innerHeight;
+        scrollProgress.style.width = (window.scrollY / h) * 100 + "%";
+        if (heroMedia) heroMedia.style.transform = `translateY(${window.scrollY * 0.25}px)`;
+        if (backTop) {
+          const show = window.scrollY > 600;
+          backTop.style.opacity = show ? "1" : "0";
+          backTop.style.transform = show ? "translateY(0) scale(1)" : "translateY(16px) scale(0.9)";
+          backTop.style.pointerEvents = show ? "auto" : "none";
+        }
+        ticking = false;
+      });
+      ticking = true;
+    }
   }, { passive: true });
 
   const mobileMenu = document.getElementById("mobileMenu");
   const menuBtn = document.getElementById("menuBtn");
+  const backTop = document.getElementById("backTop");
   function toggleMenu(open) {
     mobileMenu.classList.toggle("open", open);
     menuBtn.classList.toggle("active", open);
@@ -1152,6 +1232,10 @@
   }
   menuBtn.addEventListener("click", () => toggleMenu(!mobileMenu.classList.contains("open")));
   mobileMenu.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => toggleMenu(false)));
+
+  backTop?.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
 
   // ---------- LAUNCH COUNTDOWN ----------
   // Set launch date ~ 45 days out from today (relative to deployment)
@@ -1210,7 +1294,9 @@
   notifyForm.addEventListener("submit", (e) => {
     e.preventDefault();
     const email = document.getElementById("notifyEmail").value.trim();
+    const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!email) { showToast("Please enter your email address."); return; }
+    if (!emailRe.test(email)) { showToast("Please enter a valid email address."); return; }
     const text = encodeURIComponent(`Hello Navodaya Naturals! 🌿\n\nPlease add me to the launch list.\nEmail: ${email}`);
     window.open(`https://wa.me/918265098123?text=${text}`, "_blank");
     notifyStatus.textContent = "✅ Thanks! We'll reach out on WhatsApp to confirm.";
