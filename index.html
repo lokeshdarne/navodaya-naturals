@@ -60,7 +60,7 @@
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     text-size-adjust: 100%;
-    scroll-padding-top: 96px;
+    scroll-padding-top: 110px;
   }
   body {
     font-family: var(--font-body);
@@ -214,17 +214,17 @@
   /* Logo + brand name — left aligned, larger */
   .nav-logo { display: flex; align-items: center; gap: 14px; }
   .nav-logo img {
-    height: 56px;
+    height: 64px;
     width: auto;
     object-fit: contain;
     filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.18));
     transition: height 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   }
-  .navbar-scrolled .nav-logo img { height: 50px; }
+  .navbar-scrolled .nav-logo img { height: 56px; }
   .nav-logo:hover img { transform: scale(1.04); }
   @media (max-width: 480px) {
-    .nav-logo img { height: 46px; }
-    .navbar-scrolled .nav-logo img { height: 42px; }
+    .nav-logo img { height: 54px; }
+    .navbar-scrolled .nav-logo img { height: 48px; }
   }
   .nav-name {
     font-family: var(--font-heading);
@@ -437,10 +437,16 @@
     50%      { opacity: 0.6; box-shadow: 0 0 0 6px rgba(200,164,94,0); }
   }
     .hero h1 {
-    font-size: clamp(38px, 8vw, 84px);
+    font-size: clamp(34px, 8vw, 84px);
     font-weight: 600;
     color: #fff;
     margin-bottom: 24px;
+    max-width: 100%;
+    overflow-wrap: break-word;
+    padding-bottom: 4px;
+  }
+  @media (max-width: 520px) {
+    .hero h1 { font-size: clamp(30px, 9.5vw, 44px); }
   }
   .hero h1 .serif {
     font-family: var(--font-serif);
@@ -940,7 +946,7 @@
     <div class="container hero-inner">
       <span class="hero-eyebrow reveal"><span class="pulse"></span> Launching Soon</span>
       <h1 class="reveal">
-        Pure superfoods,<br/>straight from the <span class="serif">Indian soil</span>
+        Pure superfoods,<br/>straight from the<br/><span class="serif">Indian soil</span>
       </h1>
       <p class="hero-sub reveal">
         Certified organic. Grown by partner farmers. Harvested fresh, dried gently, and packed in small batches — so nothing comes between you and nature's nutrients.
@@ -997,7 +1003,7 @@
       <div class="section-head reveal">
         <span class="eyebrow">The Collection</span>
         <h2>The first harvest awaits</h2>
-        <p>We're putting the finishing touches on our founding range. These five essentials are launching first — join the list to be the first to taste them.</p>
+        <p>We're putting the finishing touches on our founding range. These six essentials are launching first — join the list to be the first to taste them.</p>
       </div>
 
       <div class="product-grid" id="productGrid"></div>
@@ -1186,14 +1192,16 @@
     chia: "https://lh3.googleusercontent.com/aida-public/AB6AXuCfqUPeA9CVOmhjN2jfYbJFdrJp5ah54RghcQKUj80Wq8RCZQG8zhX6dqJMnNB2ajvSDtK5tucDII13jn5OiItL888JwyLgVF9HTTBYjb9vXubmNJ2mNRphQx7QamSn673oLixoraNiP6VOy4vHf8IhkEslFRDqCUU95-UUhZjQGslWZxJpTYd6l0iwKvP0HJnoMt9uqhEpCRiZpgJcoNfXxiJNPbDfvcOjwRBMbgNtBUwdfuU5HgRp",
     basil: "https://lh3.googleusercontent.com/aida-public/AB6AXuAmS5nIVyWs3dBtq5C7wWTvr862yPtC_M-OlWEv54CH8U8PAljbqTssVxZ-fL6gtZAa7jSXMmWUwr7wjmV5kz2mUMEbltqvI8DmzLTidbVASOwyi_gqlfbu-Bj16WnV_wflW5kVq1ORbjUg9xoLTjcFyC1UtPC84jLWWez4wvad8qMAesJbxTwsxT8NsP1parrjSyoeqFz3cPargBhIPAGLT7tuoQaqf6YAZFhP4LP2hX6zg0ES-U3E",
     tomato: "https://lh3.googleusercontent.com/aida-public/AB6AXuB-mdHj7NGpj9i7o05Z3mRiVMAEWpa0c7kmh6E5nntZ61_jPzI3ubTThRks6_LDhpegKGRF8Ge22WKrFkTfAWk7hMlSN3i3OtxEiDIsXiToJa1fxpofgZ0EvtdahfaMsS3lr2YP1yMODEDmWAjcYdHuu5VWTfGDTq0gI5HYL6ylsZ_d8ud64W92nQUBMOd0LZ9k89-P9H9SVleboJ0RcqYV34XMiUndrJV3b-KuOR8Np8c_Q8RQQhcm",
-    garlic: "https://lh3.googleusercontent.com/aida-public/AB6AXuDKxvoWtO2Kge7pctgQxAObxr6SG2Fe7DSPqk_rVuYxT0f3iecFPa-wli5c4X-B1CX4nmGk3hUt2aEkCnSdRQnHD9jBhyxMbs0qe65ut-2CwsCSB7TLfCBGbKrZqF-nHvei7OgsMhGBGmCaMGW_a6mizAu_7rVK9cgMhON84LByMaAsPDF7SMpLaYqEN2UOFK7FkXxuD0kA8dQh9NxsgAOU1O6b1098VzL8mIqSWsNrkC0bapc979sW"
+    garlic: "https://lh3.googleusercontent.com/aida-public/AB6AXuDKxvoWtO2Kge7pctgQxAObxr6SG2Fe7DSPqk_rVuYxT0f3iecFPa-wli5c4X-B1CX4nmGk3hUt2aEkCnSdRQnHD9jBhyxMbs0qe65ut-2CwsCSB7TLfCBGbKrZqF-nHvei7OgsMhGBGmCaMGW_a6mizAu_7rVK9cgMhON84LByMaAsPDF7SMpLaYqEN2UOFK7FkXxuD0kA8dQh9NxsgAOU1O6b1098VzL8mIqSWsNrkC0bapc979sW",
+    turmeric: "https://lh3.googleusercontent.com/aida-public/AB6AXuAmS5nIVyWs3dBtq5C7wWTvr862yPtC_M-OlWEv54CH8U8PAljbqTssVxZ-fL6gtZAa7jSXMmWUwr7wjmV5kz2mUMEbltqvI8DmzLTidbVASOwyi_gqlfbu-Bj16WnV_wflW5kVq1ORbjUg9xoLTjcFyC1UtPC84jLWWez4wvad8qMAesJbxTwsxT8NsP1parrjSyoeqFz3cPargBhIPAGLT7tuoQaqf6YAZFhP4LP2hX6zg0ES-U3E"
   };
   const PRODUCTS = [
     { id: "moringa", name: "Moringa Powder", category: "Superfoods", img: IMG.moringa, desc: "Nutrient-dense organic moringa leaf powder, harvested at dawn and gently air-dried." },
     { id: "chia", name: "Chia Seeds", category: "Pantry", img: IMG.chia, desc: "Premium raw organic chia seeds, a plant-powered source of omega-3 and fibre." },
     { id: "basil", name: "Dry Basil Leaves", category: "Herbs & Spices", img: IMG.basil, desc: "Sun-dried organic sweet basil leaves for aromatic, flavour-packed cooking." },
     { id: "tomato", name: "Tomato Powder", category: "Pantry", img: IMG.tomato, desc: "100% pure dehydrated tomato powder — rich, tangy depth for sauces and marinades." },
-    { id: "garlic", name: "Garlic Powder", category: "Herbs & Spices", img: IMG.garlic, desc: "Fine organic garlic powder delivering robust, savoury flavour to any dish." }
+    { id: "garlic", name: "Garlic Powder", category: "Herbs & Spices", img: IMG.garlic, desc: "Fine organic garlic powder delivering robust, savoury flavour to any dish." },
+    { id: "turmeric", name: "Turmeric Powder", category: "Herbs & Spices", img: IMG.turmeric, desc: "Vivid, high-curcumin organic turmeric — sun-dried and stone-ground for warmth and colour." }
   ];
 
   // ---------- RENDER PRODUCT GRID ----------
