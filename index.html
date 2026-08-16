@@ -13,8 +13,10 @@
 <meta name="og:description" content="Certified organic superfoods, harvested fresh from Indian farms. Launching soon."/>
 <meta name="og:type" content="website"/>
 <meta name="og:image" content="assets/images/hero-banner.jpg"/>
+<meta name="og:image:width" content="1200"/>
+<meta name="og:image:height" content="630"/>
 <meta name="twitter:card" content="summary_large_image"/>
-<link rel="icon" type="image/png" href="assets/images/logo.png"/>
+<link rel="icon" type="image/png" href="assets/logos/top_logo.png"/>
 
 <!-- Fonts: Apple SF Pro-inspired stack with elegant fallbacks -->
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -189,26 +191,26 @@
   }
   .nav-logo { display: flex; align-items: center; gap: 12px; }
   .nav-logo img {
-    height: 48px;
-    width: 48px;
+    height: 40px;
+    width: auto;
     object-fit: contain;
-    border-radius: var(--radius-sm);
-    background: var(--bg-elevated);
-    padding: 6px;
-    box-shadow: var(--shadow-card);
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.18));
     transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   }
-  .nav-logo:hover img { transform: scale(1.05) rotate(-2deg); }
-  .nav-name { font-family: var(--font-heading); font-weight: 600; font-size: 15px; color: var(--ink); }
+  .nav-logo:hover img { transform: scale(1.05); }
+  .nav-name { font-family: var(--font-heading); font-weight: 600; font-size: 15px; color: #fff; transition: color 0.3s; }
+  .navbar-scrolled .nav-name { color: var(--ink); }
 
   .nav-links { display: none; align-items: center; gap: 36px; }
   .nav-links a {
     font-size: 14px;
     font-weight: 500;
-    color: var(--ink-soft);
+    color: rgba(255, 255, 255, 0.78);
     transition: color 0.2s;
   }
-  .nav-links a:hover { color: var(--ink); }
+  .nav-links a:hover { color: #fff; }
+  .navbar-scrolled .nav-links a { color: var(--ink-soft); }
+  .navbar-scrolled .nav-links a:hover { color: var(--ink); }
   @media (min-width: 768px) { .nav-links { display: flex; } }
 
   .nav-cta {
@@ -228,10 +230,12 @@
     gap: 5px;
     padding: 10px 12px;
     border-radius: var(--radius-full);
-    background: rgba(255,255,255,0.6);
-    border: 1px solid var(--line);
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.2);
   }
-  .nav-burger span { display: block; width: 18px; height: 2px; background: var(--ink); border-radius: 2px; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); transform-origin: center; }
+  .nav-burger span { display: block; width: 18px; height: 2px; background: #fff; border-radius: 2px; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); transform-origin: center; }
+  .navbar-scrolled .nav-burger { background: rgba(255,255,255,0.6); border-color: var(--line); }
+  .navbar-scrolled .nav-burger span { background: var(--ink); }
   .nav-burger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
   .nav-burger.active span:nth-child(2) { opacity: 0; transform: translateX(-6px); }
   .nav-burger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
@@ -450,61 +454,6 @@
   .metric { text-align: center; }
   .metric strong { display: block; font-family: var(--font-serif); font-size: 28px; color: #fff; font-weight: 500; }
   .metric span { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.55); }
-
-  /* ============ COUNTDOWN ============ */
-  .countdown {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
-    margin-top: 8px;
-  }
-  .countdown-label {
-    font-size: 11px;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.55);
-  }
-  .countdown-timer {
-    display: flex;
-    align-items: stretch;
-    gap: 14px;
-    background: rgba(255, 255, 255, 0.07);
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    padding: 20px 26px;
-    border-radius: var(--radius-lg);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
-  }
-  .cd-unit {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-width: 56px;
-  }
-  .cd-unit strong {
-    font-family: var(--font-serif);
-    font-size: 32px;
-    font-weight: 500;
-    color: #fff;
-    font-variant-numeric: tabular-nums;
-    line-height: 1;
-  }
-  .cd-unit span {
-    font-size: 10px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.5);
-    margin-top: 6px;
-  }
-  .cd-sep {
-    align-self: center;
-    color: var(--accent);
-    font-size: 22px;
-    font-weight: 300;
-    transform: translateY(-9px);
-  }
 
   /* ============ TRUST BAR ============ */
   .trust {
@@ -876,7 +825,7 @@
   <div class="container">
     <div class="nav-inner">
       <a href="#" class="nav-logo">
-        <img src="assets/images/logo.png" alt="Navodaya Naturals logo"/>
+        <img src="assets/logos/top_logo.png" alt="Navodaya Naturals logo"/>
         <span class="nav-name">Navodaya Naturals</span>
       </a>
 
@@ -927,30 +876,6 @@
         <div class="metric"><strong>100%</strong><span>Certified Organic</span></div>
         <div class="metric"><strong>0</strong><span>Additives</span></div>
         <div class="metric"><strong>250+</strong><span>Partner Farmers</span></div>
-      </div>
-      <div class="countdown reveal reveal-delay-3">
-        <span class="countdown-label">We launch in</span>
-        <div class="countdown-timer" id="countdownTimer" aria-live="polite" aria-label="Launch countdown">
-          <div class="cd-unit">
-            <strong id="cdDays">00</strong>
-            <span>Days</span>
-          </div>
-          <span class="cd-sep" aria-hidden="true">:</span>
-          <div class="cd-unit">
-            <strong id="cdHours">00</strong>
-            <span>Hours</span>
-          </div>
-          <span class="cd-sep" aria-hidden="true">:</span>
-          <div class="cd-unit">
-            <strong id="cdMinutes">00</strong>
-            <span>Minutes</span>
-          </div>
-          <span class="cd-sep" aria-hidden="true">:</span>
-          <div class="cd-unit">
-            <strong id="cdSeconds">00</strong>
-            <span>Seconds</span>
-          </div>
-        </div>
       </div>
     </div>
     <a href="#collection" class="hero-scroll" aria-label="Scroll to explore">
@@ -1113,7 +1038,7 @@
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <img src="assets/images/logo.png" alt="Navodaya Naturals"/>
+        <img src="assets/logos/top_logo.png" alt="Navodaya Naturals"/>
         <p>
           Bringing the purest organic superfoods from Indian farms directly to your table.
         </p>
@@ -1236,28 +1161,6 @@
   backTop?.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
-
-  // ---------- LAUNCH COUNTDOWN ----------
-  // Set launch date ~ 45 days out from today (relative to deployment)
-  const launchDate = new Date();
-  launchDate.setDate(launchDate.getDate() + 45);
-  const cdDays = document.getElementById("cdDays");
-  const cdHours = document.getElementById("cdHours");
-  const cdMinutes = document.getElementById("cdMinutes");
-  const cdSeconds = document.getElementById("cdSeconds");
-  function updateCountdown() {
-    const diff = Math.max(0, launchDate - new Date());
-    const d = Math.floor(diff / 86400000);
-    const h = Math.floor((diff % 86400000) / 3600000);
-    const m = Math.floor((diff % 3600000) / 60000);
-    const s = Math.floor((diff % 60000) / 1000);
-    cdDays.textContent = String(d).padStart(2, "0");
-    cdHours.textContent = String(h).padStart(2, "0");
-    cdMinutes.textContent = String(m).padStart(2, "0");
-    cdSeconds.textContent = String(s).padStart(2, "0");
-  }
-  updateCountdown();
-  setInterval(updateCountdown, 1000);
 
   // ---------- CONTACT FORM → WhatsApp ----------
   const form = document.getElementById("contactForm");
