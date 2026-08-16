@@ -141,6 +141,28 @@
     color: var(--brand);
   }
 
+  /* ============ ICON SYSTEM ============ */
+  .ico {
+    display: inline-block;
+    flex-shrink: 0;
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.14em;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .ico-fill { fill: currentColor; stroke: none; }
+  .ico-26 { width: 26px; height: 26px; }
+  .ico-24 { width: 24px; height: 24px; }
+  .ico-22 { width: 22px; height: 22px; }
+  .ico-20 { width: 20px; height: 20px; }
+  .ico-18 { width: 18px; height: 18px; }
+  .ico-16 { width: 16px; height: 16px; }
+  .ico-14 { width: 14px; height: 14px; }
+
   /* ============ UTILITIES ============ */
   .text-serif { font-family: var(--font-serif); }
   .gradient-text {
@@ -171,35 +193,53 @@
     left: 0;
     right: 0;
     z-index: 100;
-    padding-top: 16px;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: background 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   }
-  .navbar-scrolled .nav-inner {
-    background: rgba(255, 255, 255, 0.78);
+  .navbar-scrolled {
+    background: rgba(255, 255, 255, 0.82);
     backdrop-filter: saturate(180%) blur(20px);
     -webkit-backdrop-filter: saturate(180%) blur(20px);
-    box-shadow: 0 1px 0 var(--line), 0 8px 32px rgba(20, 32, 24, 0.06);
+    box-shadow: 0 1px 0 var(--line), 0 6px 24px rgba(20, 32, 24, 0.05);
   }
   .nav-inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 24px;
-    padding: 10px 16px;
-    border-radius: var(--radius-full);
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    padding: 18px 0;
+    transition: padding 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   }
-  .nav-logo { display: flex; align-items: center; gap: 12px; }
+  .navbar-scrolled .nav-inner { padding: 11px 0; }
+
+  /* Logo + brand name — left aligned, larger */
+  .nav-logo { display: flex; align-items: center; gap: 14px; }
   .nav-logo img {
-    height: 40px;
+    height: 56px;
     width: auto;
     object-fit: contain;
     filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.18));
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: height 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   }
-  .nav-logo:hover img { transform: scale(1.05); }
-  .nav-name { font-family: var(--font-heading); font-weight: 600; font-size: 15px; color: #fff; transition: color 0.3s; }
-  .navbar-scrolled .nav-name { color: var(--ink); }
+  .navbar-scrolled .nav-logo img { height: 50px; }
+  .nav-logo:hover img { transform: scale(1.04); }
+  @media (max-width: 480px) {
+    .nav-logo img { height: 46px; }
+    .navbar-scrolled .nav-logo img { height: 42px; }
+  }
+  .nav-name {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    color: #fff;
+    transition: color 0.3s, font-size 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .navbar-scrolled .nav-name { color: var(--ink); font-size: 19px; }
+  @media (max-width: 480px) {
+    .nav-name { font-size: 17px; }
+    .navbar-scrolled .nav-name { font-size: 16px; }
+  }
 
   .nav-links { display: none; align-items: center; gap: 36px; }
   .nav-links a {
@@ -396,12 +436,10 @@
     0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(200,164,94,0.5); }
     50%      { opacity: 0.6; box-shadow: 0 0 0 6px rgba(200,164,94,0); }
   }
-  .hero-eyebrow .pulse { } /* keep hook for specificity if needed */
-  .hero h1 {
+    .hero h1 {
     font-size: clamp(38px, 8vw, 84px);
     font-weight: 600;
     color: #fff;
-    max-width: 15ch;
     margin-bottom: 24px;
   }
   .hero h1 .serif {
@@ -478,7 +516,6 @@
     background: var(--accent-soft);
     color: var(--brand);
     border-radius: 18px;
-    font-size: 24px;
     box-shadow: var(--shadow-card);
     transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s, color 0.3s;
   }
@@ -676,7 +713,6 @@
     background: var(--brand-soft);
     color: var(--brand);
     border-radius: 16px;
-    font-size: 20px;
   }
   .contact-row strong { display: block; font-size: 14px; font-weight: 600; }
   .contact-row span { font-size: 13px; color: var(--ink-soft); }
@@ -733,7 +769,7 @@
     background: var(--brand-deep);
     color: rgba(255,255,255,0.75);
     border-radius: var(--radius-xl) var(--radius-xl) 0 0;
-    padding: 64px 0 40px;
+    padding: 72px 0 40px;
   }
   .footer-grid {
     display: grid;
@@ -748,9 +784,32 @@
   @media (min-width: 1024px) {
     .footer-grid { grid-template-columns: 2fr 1fr 1fr 1fr; }
   }
-  .footer-brand { display: flex; flex-direction: column; gap: 16px; }
-  .footer-brand img { height: 52px; width: 52px; object-fit: contain; border-radius: var(--radius-sm); background: rgba(255,255,255,0.12); padding: 8px; flex-shrink: 0; }
-  .footer-brand p { font-weight: 300; font-size: 14px; line-height: 1.8; max-width: 280px; }
+  .footer-brand { display: flex; flex-direction: column; gap: 18px; align-items: flex-start; }
+  .footer-logo-card {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    border-radius: 18px;
+    padding: 14px 18px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  }
+  .footer-logo-card img {
+    height: 80px;
+    width: auto;
+    max-width: 200px;
+    object-fit: contain;
+    display: block;
+  }
+  .footer-brand-text { display: flex; flex-direction: column; gap: 8px; }
+  .footer-name {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 21px;
+    letter-spacing: -0.01em;
+    color: #fff;
+  }
+  .footer-brand p { font-weight: 300; font-size: 14px; line-height: 1.8; max-width: 300px; }
   .footer h4 { color: #fff; font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 20px; }
   .footer ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
   .footer ul a { font-size: 14px; font-weight: 300; transition: color 0.2s; }
@@ -768,6 +827,8 @@
     color: rgba(255,255,255,0.45);
     text-align: center;
   }
+  .footer-bottom .made-with { display: inline-flex; align-items: center; gap: 7px; }
+  .footer-bottom .made-with .ico { color: var(--accent); }
   @media (min-width: 768px) {
     .footer-bottom {
       flex-direction: row;
@@ -819,6 +880,26 @@
 
 <!-- Scroll progress bar -->
 <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<!-- ============ SVG ICON SPRITE ============ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-handshake" viewBox="0 0 24 24"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="m21 3 1 11h-2"/><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/><path d="M3 4h8"/></symbol>
+    <symbol id="i-truck" viewBox="0 0 24 24"><path d="M14 18V6a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h1"/><path d="M14 9h4l4 4v4a1 1 0 0 1-1 1h-1"/><circle cx="7.5" cy="18.5" r="2.5"/><circle cx="17.5" cy="18.5" r="2.5"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></symbol>
+    <symbol id="i-whatsapp" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 0 1 8.413 3.488 11.82 11.82 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.82 9.82 0 0 0 1.515 5.26l-.999 3.648 3.973-1.627zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8.5 12 2.5 2.5 5-5"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></symbol>
+  </defs>
+</svg>
 
 <!-- ============ NAVBAR ============ -->
 <nav class="navbar" id="navbar">
@@ -888,22 +969,22 @@
   <div class="container">
     <div class="trust reveal">
       <div class="trust-item">
-        <div class="trust-ico">🌿</div>
+        <div class="trust-ico"><svg class="ico ico-26" aria-hidden="true"><use href="#i-leaf"/></svg></div>
         <strong>100% Pure Organic</strong>
         <span>Grown without chemicals</span>
       </div>
       <div class="trust-item">
-        <div class="trust-ico">✓</div>
+        <div class="trust-ico"><svg class="ico ico-26" aria-hidden="true"><use href="#i-shield"/></svg></div>
         <strong>FSSAI Certified</strong>
         <span>Lab-tested for purity</span>
       </div>
       <div class="trust-item">
-        <div class="trust-ico">🤝</div>
+        <div class="trust-ico"><svg class="ico ico-26" aria-hidden="true"><use href="#i-handshake"/></svg></div>
         <strong>Farmer Direct</strong>
         <span>Fair prices, no middlemen</span>
       </div>
       <div class="trust-item">
-        <div class="trust-ico">🚚</div>
+        <div class="trust-ico"><svg class="ico ico-26" aria-hidden="true"><use href="#i-truck"/></svg></div>
         <strong>Doorstep Delivery</strong>
         <span>Cash on delivery available</span>
       </div>
@@ -934,7 +1015,10 @@
         <input type="email" name="email" id="notifyEmail" placeholder="Your email address" required autocomplete="email"/>
         <button type="submit" class="btn btn-primary">Notify Me</button>
       </form>
-      <p class="notify-note" id="notifyStatus">🔒 No spam. Unsubscribe anytime.</p>
+      <p class="notify-note" id="notifyStatus">
+        <svg class="ico ico-14" aria-hidden="true"><use href="#i-lock"/></svg>
+        <span id="notifyStatusText">No spam. Unsubscribe anytime.</span>
+      </p>
     </div>
   </section>
 
@@ -974,23 +1058,23 @@
           </p>
           <div class="contact-list">
             <a class="contact-row" href="mailto:pratyush@navodayanaturals.com">
-              <span class="contact-ico">✉</span>
+              <span class="contact-ico"><svg class="ico ico-22" aria-hidden="true"><use href="#i-mail"/></svg></span>
               <div><strong>Email us</strong><span>pratyush@navodayanaturals.com</span></div>
             </a>
             <a class="contact-row" href="tel:+918265098123">
-              <span class="contact-ico">☎</span>
+              <span class="contact-ico"><svg class="ico ico-22" aria-hidden="true"><use href="#i-phone"/></svg></span>
               <div><strong>Call us</strong><span>+91 82650 98123</span></div>
             </a>
             <a class="contact-row" href="https://wa.me/918265098123" target="_blank" rel="noopener">
-              <span class="contact-ico">💬</span>
+              <span class="contact-ico"><svg class="ico ico-22" aria-hidden="true"><use href="#i-whatsapp"/></svg></span>
               <div><strong>WhatsApp</strong><span>Chat with our team</span></div>
             </a>
             <div class="contact-row">
-              <span class="contact-ico">📍</span>
+              <span class="contact-ico"><svg class="ico ico-22" aria-hidden="true"><use href="#i-pin"/></svg></span>
               <div><strong>Visit us</strong><span>Yavatmal, India</span></div>
             </div>
             <div class="contact-row">
-              <span class="contact-ico">🕘</span>
+              <span class="contact-ico"><svg class="ico ico-22" aria-hidden="true"><use href="#i-clock"/></svg></span>
               <div><strong>Hours</strong><span>Mon–Sat · 9 AM – 7 PM IST</span></div>
             </div>
           </div>
@@ -1023,6 +1107,7 @@
           </div>
           <div style="display: flex; justify-content: center; margin-top: 4px;">
             <button type="submit" class="form-submit">
+              <svg class="ico ico-18" aria-hidden="true"><use href="#i-whatsapp"/></svg>
               Send via WhatsApp
             </button>
           </div>
@@ -1038,10 +1123,13 @@
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <img src="assets/logos/top_logo.png" alt="Navodaya Naturals"/>
-        <p>
-          Bringing the purest organic superfoods from Indian farms directly to your table.
-        </p>
+        <div class="footer-logo-card">
+          <img src="assets/images/logo.JPG" alt="Navodaya Naturals logo"/>
+        </div>
+        <div class="footer-brand-text">
+          <span class="footer-name">Navodaya Naturals</span>
+          <p>Bringing the purest organic superfoods from Indian farms directly to your table.</p>
+        </div>
       </div>
       <div>
         <h4>Explore</h4>
@@ -1070,21 +1158,26 @@
     </div>
     <div class="footer-bottom">
       <span>© <span id="year">2026</span> Navodaya Naturals. Purely Organic. Farmer Direct.</span>
-      <span>Crafted with ☀︎ from the Indian soil</span>
+      <span class="made-with">Crafted with <svg class="ico ico-14" aria-hidden="true"><use href="#i-sun"/></svg> from the Indian soil</span>
     </div>
   </div>
 </footer>
 
 <!-- Sticky mobile CTA -->
 <div class="sticky-cta">
-  <a href="#notify">🌿 Notify Me at Launch</a>
+  <a href="#notify">
+    <svg class="ico ico-18" aria-hidden="true"><use href="#i-leaf"/></svg>
+    Notify Me at Launch
+  </a>
 </div>
 
 <!-- Toast -->
 <div id="toast" aria-live="polite" style="position: fixed; left: 50%; bottom: 88px; transform: translateX(-50%) translateY(20px); background: var(--brand-deep); color: #fff; font-size: 14px; font-weight: 500; padding: 14px 22px; border-radius: 999px; box-shadow: var(--shadow-float); opacity: 0; transition: all 0.4s cubic-bezier(0.16,1,0.3,1); z-index: 200; pointer-events: none;"></div>
 
 <!-- Back to top -->
-<button id="backTop" aria-label="Back to top" style="position: fixed; right: 20px; bottom: 20px; z-index: 90; width: 48px; height: 48px; border-radius: 999px; background: var(--brand); color: #fff; font-size: 20px; box-shadow: var(--shadow-float); opacity: 0; transform: translateY(16px) scale(0.9); pointer-events: none; transition: all 0.35s cubic-bezier(0.16,1,0.3,1);">↑</button>
+<button id="backTop" aria-label="Back to top" style="position: fixed; right: 20px; bottom: 20px; z-index: 90; width: 48px; height: 48px; border-radius: 999px; background: var(--brand); color: #fff; box-shadow: var(--shadow-float); opacity: 0; transform: translateY(16px) scale(0.9); pointer-events: none; transition: all 0.35s cubic-bezier(0.16,1,0.3,1); display: grid; place-items: center;">
+  <svg class="ico ico-20" aria-hidden="true"><use href="#i-arrow-up"/></svg>
+</button>
 
 <script>
   // ---------- PRODUCT DATA (pre-launch preview) ----------
@@ -1116,7 +1209,7 @@
         <h3>${p.name}</h3>
         <p>${p.desc}</p>
         <a class="notify-link" href="#notify">
-          Get notified <span aria-hidden="true">→</span>
+          Get notified <svg class="ico ico-14" aria-hidden="true"><use href="#i-arrow-right"/></svg>
         </a>
       </div>
     </article>
@@ -1179,7 +1272,8 @@
 
   // ---------- NOTIFY (launch list) → WhatsApp ----------
   const notifyForm = document.getElementById("notifyForm");
-  const notifyStatus = document.getElementById("notifyStatus");
+  const notifyStatusText = document.getElementById("notifyStatusText");
+  const notifyStatusUse = document.querySelector("#notifyStatus use");
   const toast = document.getElementById("toast");
   let toastTimer;
 
@@ -1200,9 +1294,10 @@
     const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!email) { showToast("Please enter your email address."); return; }
     if (!emailRe.test(email)) { showToast("Please enter a valid email address."); return; }
-    const text = encodeURIComponent(`Hello Navodaya Naturals! 🌿\n\nPlease add me to the launch list.\nEmail: ${email}`);
+    const text = encodeURIComponent(`Hello Navodaya Naturals!\n\nPlease add me to the launch list.\nEmail: ${email}`);
     window.open(`https://wa.me/918265098123?text=${text}`, "_blank");
-    notifyStatus.textContent = "✅ Thanks! We'll reach out on WhatsApp to confirm.";
+    notifyStatusText.textContent = "Thanks! We'll reach out on WhatsApp to confirm.";
+    if (notifyStatusUse) notifyStatusUse.setAttribute("href", "#i-check");
     notifyForm.reset();
     showToast("Thanks for joining the launch list!");
   });
