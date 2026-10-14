@@ -37,7 +37,7 @@ h1,h2,h3,h4{font-family:var(--font-heading);line-height:1.15;letter-spacing:-0.0
 .btn-outline{border:2px solid var(--clay);color:var(--clay-deep);background:transparent}.btn-outline:hover{transform:scale(1.05);background:rgba(193,140,93,0.08)}.btn-ghost{background:rgba(255,255,255,0.08);color:#fff;border:1px solid rgba(255,255,255,0.24)}.btn-ghost:hover{background:rgba(255,255,255,0.16);transform:translateY(-2px)}.btn-sm{font-size:13px;padding:11px 22px}
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s var(--ease-natural),transform .7s var(--ease-natural)}.reveal.is-visible{opacity:1;transform:translateY(0)}.reveal-delay-1{transition-delay:.08s}.reveal-delay-2{transition-delay:.16s}.reveal-delay-3{transition-delay:.24s}.reveal-delay-4{transition-delay:.32s}.reveal-delay-5{transition-delay:.40s}
 .hero-brand{display:none;padding:0 24px 4px;text-align:left}@media(max-width:767px){.hero-brand{display:block;padding:84px 24px 4px}}@media(max-width:400px){.hero-brand{padding-top:76px}}.hero-brand .brand-chip{width:60px;height:60px;border-radius:50%;background:#fff;overflow:hidden;display:inline-block;box-shadow:0 2px 10px rgba(0,0,0,0.1)}.hero-brand .brand-chip img{width:100%;height:100%;object-fit:cover}.hero-brand .brand-name{display:block;font-family:var(--font-heading);font-weight:600;font-size:22px;line-height:1.15;color:var(--ink);margin-top:6px}
-.navbar{position:fixed;top:16px;left:16px;right:16px;z-index:100;transition:box-shadow .4s var(--ease-natural)}.nav-pill{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:8px;padding:8px 10px 8px 12px;background:rgba(255,255,255,0.72);backdrop-filter:blur(16px) saturate(1.3);-webkit-backdrop-filter:blur(16px) saturate(1.3);border:1px solid rgba(222,216,207,0.6);border-radius:999px;box-shadow:var(--shadow-soft);transition:box-shadow .4s var(--ease-natural),padding .4s var(--ease-natural)}.navbar-scrolled .nav-pill{box-shadow:0 4px 30px rgba(93,112,82,0.12),0 1px 0 rgba(222,216,207,0.4)}
+.navbar{position:fixed;top:16px;left:16px;right:16px;z-index:100;transition:box-shadow .4s var(--ease-natural),transform .35s var(--ease-natural)}.navbar-hidden{transform:translateY(-130%)}.nav-pill{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:8px;padding:8px 10px 8px 12px;background:rgba(255,255,255,0.72);backdrop-filter:blur(16px) saturate(1.3);-webkit-backdrop-filter:blur(16px) saturate(1.3);border:1px solid rgba(222,216,207,0.6);border-radius:999px;box-shadow:var(--shadow-soft);transition:box-shadow .4s var(--ease-natural),padding .4s var(--ease-natural)}.navbar-scrolled .nav-pill{box-shadow:0 4px 30px rgba(93,112,82,0.12),0 1px 0 rgba(222,216,207,0.4)}
 .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0}.logo-chip{width:56px;height:56px;border-radius:50%;background:#fff;overflow:hidden;flex-shrink:0;display:grid;place-items:center;box-shadow:0 2px 8px rgba(0,0,0,0.1);transition:width .4s var(--ease-natural),height .4s var(--ease-natural)}.logo-chip img{width:100%;height:100%;object-fit:cover}.navbar-scrolled .logo-chip{width:48px;height:48px}.nav-name{font-family:var(--font-heading);font-weight:600;font-size:22px;line-height:1.1;color:var(--ink);white-space:nowrap;transition:font-size .4s var(--ease-natural)}.navbar-scrolled .nav-name{font-size:18px}@media(max-width:767px){.nav-logo{display:none}.nav-pill{justify-content:flex-end}}@media(max-width:640px){.nav-name{display:none}}@media(max-width:480px){.logo-chip{width:46px;height:46px}}
 .nav-links{display:none;align-items:center;gap:28px;margin-left:auto;margin-right:auto}.nav-links a{font-size:14px;font-weight:600;color:var(--ink-muted);transition:color .25s;position:relative;padding:4px 0}.nav-links a::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%) scaleX(0);width:18px;height:3px;background:var(--clay);border-radius:999px;transition:transform .3s var(--ease-natural)}.nav-links a:hover{color:var(--ink)}.nav-links a:hover::after{transform:translateX(-50%) scaleX(1)}@media(min-width:768px){.nav-links{display:flex}}.nav-cta{box-shadow:0 2px 12px rgba(93,112,82,0.2)}@media(max-width:767px){.nav-cta{display:none}}
 .nav-burger{display:flex;flex-direction:column;gap:5px;padding:10px 12px;border-radius:999px;background:rgba(255,255,255,0.5);border:1px solid var(--timber);transition:background .3s,border-color .3s}.nav-burger span{display:block;width:18px;height:2px;background:var(--ink);border-radius:999px;transition:all .3s var(--ease-natural);transform-origin:center}.nav-burger.active span:nth-child(1){transform:translateY(7px) rotate(45deg)}.nav-burger.active span:nth-child(2){opacity:0;transform:translateX(-6px)}.nav-burger.active span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}@media(min-width:768px){.nav-burger{display:none}}
@@ -426,20 +426,20 @@ h1,h2,h3,h4{font-family:var(--font-heading);line-height:1.15;letter-spacing:-0.0
 </button>
 <script>
   const IMG = {
-    moringa: "https://lh3.googleusercontent.com/aida-public/AB6AXuDJDsvJgzgGx-KH64F6XqfhT23tRtL3J22MGEaGsgvDe8jUOp8XacVmhzTfY8ouKVkF-gTYgBCz88RkMSm7f5lbrY5T0IzoYy96uWy4I40VO5mrBHUG0p2Uf9ZbSSZjQ-SKBwmTaA8S1niEiHB4VhxtkRciaNfKAvJSJ3yJLYmasi5QZDbCwuayo6MFFcP9V7sb14rYqlFIV8qU8AUFquwalxP0rZokz7EZrpVDAaZnrFCunDbp_I__",
-    chia: "https://lh3.googleusercontent.com/aida-public/AB6AXuCfqUPeA9CVOmhjN2jfYbJFdrJp5ah54RghcQKUj80Wq8RCZQG8zhX6dqJMnNB2ajvSDtK5tucDII13jn5OiItL888JwyLgVF9HTTBYjb9vXubmNJ2mNRphQx7QamSn673oLixoraNiP6VOy4vHf8IhkEslFRDqCUU95-UUhZjQGslWZxJpTYd6l0iwKvP0HJnoMt9uqhEpCRiZpgJcoNfXxiJNPbDfvcOjwRBMbgNtBUwdfuU5HgRp",
-    basil: "https://lh3.googleusercontent.com/aida-public/AB6AXuAmS5nIVyWs3dBtq5C7wWTvr862yPtC_M-OlWEv54CH8U8PAljbqTssVxZ-fL6gtZAa7jSXMmWUwr7wjmV5kz2mUMEbltqvI8DmzLTidbVASOwyi_gqlfbu-Bj16WnV_wflW5kVq1ORbjUg9xoLTjcFyC1UtPC84jLWWez4wvad8qMAesJbxTwsxT8NsP1parrjSyoeqFz3cPargBhIPAGLT7tuoQaqf6YAZFhP4LP2hX6zg0ES-U3E",
-    tomato: "https://lh3.googleusercontent.com/aida-public/AB6AXuB-mdHj7NGpj9i7o05Z3mRiVMAEWpa0c7kmh6E5nntZ61_jPzI3ubTThRks6_LDhpegKGRF8Ge22WKrFkTfAWk7hMlSN3i3OtxEiDIsXiToJa1fxpofgZ0EvtdahfaMsS3lr2YP1yMODEDmWAjcYdHuu5VWTfGDTq0gI5HYL6ylsZ_d8ud64W92nQUBMOd0LZ9k89-P9H9SVleboJ0RcqYV34XMiUndrJV3b-KuOR8Np8c_Q8RQQhcm",
-    garlic: "https://lh3.googleusercontent.com/aida-public/AB6AXuDKxvoWtO2Kge7pctgQxAObxr6SG2Fe7DSPqk_rVuYxT0f3iecFPa-wli5c4X-B1CX4nmGk3hUt2aEkCnSdRQnHD9jBhyxMbs0qe65ut-2CwsCSB7TLfCBGbKrZqF-nHvei7OgsMhGBGmCaMGW_a6mizAu_7rVK9cgMhON84LByMaAsPDF7SMpLaYqEN2UOFK7FkXxuD0kA8dQh9NxsgAOU1O6b1098VzL8mIqSWsNrkC0bapc979sW",
-    turmeric: "assets/images/turmeric.jpg"
+    moringa: "https://images.unsplash.com/photo-1565117661210-fd54898de423?q=80&w=800&auto=format&fit=crop",
+    chia: "https://images.pexels.com/photos/27468397/pexels-photo-27468397.jpeg?auto=compress&cs=tinysrgb&w=800",
+    basil: "https://images.pexels.com/photos/1391503/pexels-photo-1391503.jpeg?auto=compress&cs=tinysrgb&w=800",
+    basilSeeds: "https://images.pexels.com/photos/1346295/pexels-photo-1346295.jpeg?auto=compress&cs=tinysrgb&w=800",
+    tomato: "https://images.unsplash.com/photo-1547332226-395d746d139a?q=80&w=800&auto=format&fit=crop",
+    garlic: "https://images.unsplash.com/photo-1625229466998-42ee9c597290?q=80&w=800&auto=format&fit=crop"
   };
   const PRODUCTS = [
     { id: "moringa", name: "Moringa Powder", category: "Superfoods", img: IMG.moringa, desc: "Nutrient-dense organic moringa leaf powder, harvested at dawn and gently air-dried." },
     { id: "chia", name: "Chia Seeds", category: "Pantry", img: IMG.chia, desc: "Premium raw organic chia seeds, a plant-powered source of omega-3 and fibre." },
     { id: "basil", name: "Dry Basil Leaves", category: "Herbs & Spices", img: IMG.basil, desc: "Sun-dried organic sweet basil leaves for aromatic, flavour-packed cooking." },
+    { id: "basil-seeds", name: "Basil Seeds", category: "Superfoods", img: IMG.basilSeeds, desc: "Cooling sabja seeds that bloom into delicate pearls — fibre-rich, made for sherbets and falooda." },
     { id: "tomato", name: "Tomato Powder", category: "Pantry", img: IMG.tomato, desc: "100% pure dehydrated tomato powder - rich, tangy depth for sauces and marinades." },
-    { id: "garlic", name: "Garlic Powder", category: "Herbs & Spices", img: IMG.garlic, desc: "Fine organic garlic powder delivering robust, savoury flavour to any dish." },
-    { id: "turmeric", name: "Turmeric Powder", category: "Herbs & Spices", img: IMG.turmeric, desc: "Vivid, high-curcumin organic turmeric - sun-dried and stone-ground for warmth and colour." }
+    { id: "garlic", name: "Garlic Powder", category: "Herbs & Spices", img: IMG.garlic, desc: "Fine organic garlic powder delivering robust, savoury flavour to any dish." }
   ];
   const grid = document.getElementById("productGrid");
   grid.innerHTML = PRODUCTS.map((p, i) => `
@@ -464,10 +464,20 @@ h1,h2,h3,h4{font-family:var(--font-heading);line-height:1.15;letter-spacing:-0.0
   const heroVisual = document.querySelector(".hero-visual");
   const stickyCta = document.querySelector(".sticky-cta");
   let ticking = false;
+  let lastY = window.scrollY || 0;
   window.addEventListener("scroll", () => {
     if (!ticking) {
       window.requestAnimationFrame(() => {
-        navbar.classList.toggle("navbar-scrolled", window.scrollY > 12);
+        const y = window.scrollY;
+        navbar.classList.toggle("navbar-scrolled", y > 12);
+        const isMobileView = window.matchMedia("(max-width: 767px)").matches;
+        const menuOpen = document.getElementById("mobileMenu").classList.contains("open");
+        if (isMobileView && !menuOpen && y > lastY + 6 && y > 140) {
+          navbar.classList.add("navbar-hidden");
+        } else if (y < lastY - 6 || y <= 140 || !isMobileView || menuOpen) {
+          navbar.classList.remove("navbar-hidden");
+        }
+        lastY = y;
         const h = document.documentElement.scrollHeight - window.innerHeight;
         scrollProgress.style.width = (window.scrollY / h) * 100 + "%";
         if (heroVisual) heroVisual.style.transform = `translateY(${window.scrollY * 0.08}px)`;
