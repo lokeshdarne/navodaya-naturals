@@ -76,7 +76,7 @@ h1,h2,h3,h4{font-family:var(--font-heading);line-height:1.15;letter-spacing:-0.0
 .story-visual-wrap{position:relative;max-width:480px;margin:0 auto}@media(min-width:1024px){.story-visual-wrap{max-width:none;margin:0}}
 .story-frame{position:relative;z-index:1;border-radius:30% 70% 70% 30%/30% 30% 70% 70%;overflow:hidden;border:6px solid #fff;box-shadow:var(--shadow-float)}.story-frame img{width:100%;aspect-ratio:4/4.2;object-fit:cover;display:block;transition:transform .7s var(--ease-natural)}.story-visual-wrap:hover .story-frame img{transform:scale(1.05)}
 .story-blob-back{position:absolute;z-index:0;top:-16px;left:-24px;width:160px;height:160px;background:var(--sand);opacity:.5}.story-blob-front{position:absolute;z-index:2;bottom:-20px;right:-16px;width:100px;height:100px;background:var(--moss);opacity:.15}
-.story-copy{max-width:480px;margin:0 auto}@media(min-width:1024px){.story-copy{max-width:none;margin:0}}.story-copy .eyebrow{margin-bottom:14px}.story-copy h2{font-size:clamp(28px,3.6vw,40px);font-weight:600;color:var(--ink);margin-bottom:20px}.story-copy p{color:var(--ink-muted);font-weight:400;line-height:1.8;margin-bottom:16px}
+.story-copy{max-width:480px;margin:0 auto}@media(min-width:1024px){.story-copy{max-width:none;margin:0}}.story-copy .eyebrow{margin-bottom:14px}.story-copy h2{font-size:clamp(28px,3.6vw,40px);font-weight:600;color:var(--ink);margin-bottom:20px}.story-copy p{color:var(--ink-muted);font-weight:400;line-height:1.8;margin-bottom:16px}.story-copy h3{font-family:var(--font-heading);font-size:21px;font-weight:600;color:var(--ink);margin:30px 0 12px}.story-standfor{list-style:none;margin:0;padding:0;display:grid;gap:10px}.story-standfor li{display:flex;gap:10px;align-items:flex-start;color:var(--ink-muted);line-height:1.6}.story-standfor li::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--moss);flex-shrink:0;margin-top:8px}.story-lower{margin-top:72px}.story-tagline{font-family:var(--font-heading);font-style:italic;font-size:19px;color:var(--clay-deep);margin-top:18px}
 .story-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px}.stat-block{padding:18px 8px;text-align:center;background:var(--stone);transition:transform .3s var(--ease-natural)}.stat-block:nth-child(1){border-radius:24px 8px 8px 8px}.stat-block:nth-child(2){border-radius:8px 24px 8px 8px}.stat-block:nth-child(3){border-radius:8px 8px 24px 8px}.stat-block:hover{transform:translateY(-2px)}.stat-block strong{display:block;font-family:var(--font-heading);font-size:26px;color:var(--moss);font-weight:600}.stat-block span{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-muted);font-weight:700}
 .contact{padding:0 0 96px}.contact-card{background:var(--surface);border:1px solid rgba(222,216,207,0.55);border-radius:48px;box-shadow:var(--shadow-soft);padding:40px 24px}@media(min-width:768px){.contact-card{padding:64px;display:grid;grid-template-columns:1fr 1.15fr;gap:64px}}
 .contact-info h2{font-size:clamp(26px,3.4vw,36px);font-weight:600;color:var(--ink);margin-bottom:16px}.contact-info>p{color:var(--ink-muted);font-weight:400;margin-bottom:32px}.contact-list{display:flex;flex-direction:column;gap:18px}
@@ -227,7 +227,7 @@ h1,h2,h3,h4{font-family:var(--font-heading);line-height:1.15;letter-spacing:-0.0
         <article class="philosophy-card reveal reveal-delay-1">
           <div class="philosophy-ico"><svg class="ico ico-24" aria-hidden="true"><use href="#i-sun"/></svg></div>
           <h3>Sun-Dried, Not Heat-Blasted</h3>
-          <p>Our moringa, basil, and turmeric are dried in open air under the Indian sun &mdash; preserving volatile oils, enzymes, and colour that industrial ovens destroy.</p>
+          <p>Our moringa, spinach, and beetroot are dried in open air under the Indian sun &mdash; preserving volatile oils, enzymes, and colour that industrial ovens destroy.</p>
         </article>
         <article class="philosophy-card reveal reveal-delay-2">
           <div class="philosophy-ico"><svg class="ico ico-24" aria-hidden="true"><use href="#i-shield"/></svg></div>
@@ -274,19 +274,64 @@ h1,h2,h3,h4{font-family:var(--font-heading);line-height:1.15;letter-spacing:-0.0
         <div class="story-blob-front blob-3" aria-hidden="true"></div>
       </div>
       <div class="story-copy reveal reveal-delay-1">
-        <span class="eyebrow">Our Story</span>
-        <h2>Rooted in tradition,<br/>crafted for wellness</h2>
+        <span class="eyebrow">About Us</span>
+        <h2>A New Dawn<br/>of Purity</h2>
         <p>
-          Navodaya Naturals began with a simple belief: food should be pure, honest, and full of life. We work hand-in-hand with farmers who grow heirloom crops the way their families always have.
+          I'm Pratyush Misal. Since 2018, I've run an oxygen manufacturing plant in Yavatmal, Maharashtra. Farming was never part of my world, and my family hadn't farmed for generations.
         </p>
         <p>
-          Every moringa leaf is hand-picked at dawn. Every seed is sun-dried, never heat-blasted. Every batch is tested, packed, and sealed within days of harvest &mdash; so what reaches you is as close to the field as food can be.
+          That changed over one meal. At a farmer's home in Konkan, I tasted cowpea bhaji and jowar bhakri unlike anything I had eaten before. The farmer had grown it all himself, chemical free, saving his own seeds every season. That conversation stayed with me.
         </p>
+        <p>
+          Back home, I looked for farmers doing the same and found very few. Not because they didn't care, but because natural farming is harder and slower, and often pays no better than chemical farming. I wanted to understand why, so I kept asking questions and listening. Those conversations eventually led me to Padma Shri Subhash Palekar, who showed me that every plant carries its own natural strength.
+        </p>
+        <p>
+          That day I decided to farm, with no land under cultivation, no training, and no family history to draw on. I found 10 acres to rent, spent six months healing soil that had known only chemicals, and began farming at the end of October.
+        </p>
+        <h3>We stand for</h3>
+        <ul class="story-standfor">
+          <li>Healthy soil, because good food starts there</li>
+          <li>Responsible use of water</li>
+          <li>Natural, seasonal farming</li>
+          <li>Traditional, better quality crop varieties</li>
+          <li>Harvests preserved naturally, for use all year</li>
+          <li>Respect for farmers</li>
+          <li>Simple, honest food</li>
+        </ul>
         <div class="story-stats">
           <div class="stat-block"><strong>0</strong><span>Additives</span></div>
           <div class="stat-block"><strong>48h</strong><span>Field to pack</span></div>
           <div class="stat-block"><strong>100%</strong><span>Traceable</span></div>
         </div>
+      </div>
+    </div>
+    <div class="container story-lower">
+      <div class="philosophy-grid">
+        <article class="philosophy-card reveal">
+          <div class="philosophy-ico"><svg class="ico ico-24" aria-hidden="true"><use href="#i-leaf"/></svg></div>
+          <h3>Our Mission</h3>
+          <p>To bring the honest taste of naturally grown food back to every Indian home. One healed acre, one traditional variety, one chemical free harvest at a time.</p>
+          <p>Good food should not be a rare find or a luxury. Every family should be able to trust what it eats, every season. That is why Navodaya Naturals exists: to make purity accessible, to give farmers a reason to choose the harder and better path, and to remind people what real food is supposed to taste like.</p>
+        </article>
+        <article class="philosophy-card reveal reveal-delay-1">
+          <div class="philosophy-ico"><svg class="ico ico-24" aria-hidden="true"><use href="#i-sun"/></svg></div>
+          <h3>Our Vision</h3>
+          <p>A future where every Indian household eats food grown the way nature intended. Chemical free, seasonal, and full of the flavour we have been slowly losing.</p>
+        </article>
+        <article class="philosophy-card reveal reveal-delay-2">
+          <div class="philosophy-ico"><svg class="ico ico-24" aria-hidden="true"><use href="#i-shield"/></svg></div>
+          <h3>Our Values</h3>
+          <p>Healthy soil. Responsible water use. Honest, seasonal farming. Traditional, better quality crop varieties. Respect for the farmers who make it all possible. And food kept as close to its natural form as it can be. Every Navodaya Naturals product carries this story, from the soil to the harvest to your home.</p>
+        </article>
+      </div>
+      <div class="section-head reveal" style="margin-top:72px">
+        <span class="eyebrow">Meet the Founder</span>
+        <h2>Pratyush Misal</h2>
+        <p><strong>Founder, Navodaya Naturals Pvt. Ltd.</strong></p>
+        <p>
+          Pratyush previously ran an oxygen manufacturing plant in Yavatmal, Maharashtra. A chance meal in Konkan drew him toward natural farming, and later to Padma Shri Subhash Palekar. With no farming background, he began restoring 10 acres of chemical farmed land to health, and started Navodaya Naturals to bring that soil first philosophy to everyday food.
+        </p>
+        <p class="story-tagline">Navodaya Naturals. A New Dawn of Purity.</p>
       </div>
     </div>
   </section>
@@ -426,26 +471,26 @@ h1,h2,h3,h4{font-family:var(--font-heading);line-height:1.15;letter-spacing:-0.0
 </button>
 <script>
   const IMG = {
-    moringa: "https://images.unsplash.com/photo-1565117661210-fd54898de423?q=80&w=800&auto=format&fit=crop",
-    chia: "https://images.pexels.com/photos/27468397/pexels-photo-27468397.jpeg?auto=compress&cs=tinysrgb&w=800",
-    basil: "https://images.pexels.com/photos/1391503/pexels-photo-1391503.jpeg?auto=compress&cs=tinysrgb&w=800",
-    basilSeeds: "https://images.pexels.com/photos/1346295/pexels-photo-1346295.jpeg?auto=compress&cs=tinysrgb&w=800",
-    tomato: "https://images.unsplash.com/photo-1547332226-395d746d139a?q=80&w=800&auto=format&fit=crop",
-    garlic: "https://images.unsplash.com/photo-1625229466998-42ee9c597290?q=80&w=800&auto=format&fit=crop"
+    moringa: "assets/images/products/moringa.png",
+    chia: "assets/images/products/chia.png",
+    spinach: "assets/images/products/spinach.png",
+    basilSeeds: "assets/images/products/basil-seeds.jpeg",
+    beetroot: "assets/images/products/beet.png",
+    garlic: "assets/images/products/garlic.png"
   };
   const PRODUCTS = [
     { id: "moringa", name: "Moringa Powder", category: "Superfoods", img: IMG.moringa, desc: "Nutrient-dense organic moringa leaf powder, harvested at dawn and gently air-dried." },
     { id: "chia", name: "Chia Seeds", category: "Pantry", img: IMG.chia, desc: "Premium raw organic chia seeds, a plant-powered source of omega-3 and fibre." },
-    { id: "basil", name: "Dry Basil Leaves", category: "Herbs & Spices", img: IMG.basil, desc: "Sun-dried organic sweet basil leaves for aromatic, flavour-packed cooking." },
-    { id: "basil-seeds", name: "Basil Seeds", category: "Superfoods", img: IMG.basilSeeds, desc: "Cooling sabja seeds that bloom into delicate pearls — fibre-rich, made for sherbets and falooda." },
-    { id: "tomato", name: "Tomato Powder", category: "Pantry", img: IMG.tomato, desc: "100% pure dehydrated tomato powder - rich, tangy depth for sauces and marinades." },
-    { id: "garlic", name: "Garlic Powder", category: "Herbs & Spices", img: IMG.garlic, desc: "Fine organic garlic powder delivering robust, savoury flavour to any dish." }
+    { id: "spinach", name: "Spinach Powder", category: "Superfoods", img: IMG.spinach, desc: "Iron-rich organic spinach, gently dried and milled, vivid green goodness for smoothies and rotis." },
+    { id: "basil-seeds", name: "Basil Seeds", category: "Superfoods", img: IMG.basilSeeds, desc: "Cooling sabja seeds that bloom into delicate pearls, fibre-rich, made for sherbets and falooda." },
+    { id: "beetroot", name: "Beetroot Powder", category: "Pantry", img: IMG.beetroot, desc: "Earthy-sweet organic beetroot, slow-dried and powdered, natural colour and stamina for juices and baking." },
+    { id: "garlic", name: "Garlic Powder", category: "Herbs & Spices", img: IMG.garlic, desc: "Fine organic garlic powder delivering robust, savoury flavour to any dish.", imgStyle: "object-fit:contain;padding:12px;background:#fff" }
   ];
   const grid = document.getElementById("productGrid");
   grid.innerHTML = PRODUCTS.map((p, i) => `
     <article class="product-card reveal reveal-delay-${(i % 5) + 1}">
       <div class="product-media">
-        <img alt="${p.name}" src="${p.img}" loading="lazy" decoding="async"/>
+        <img alt="${p.name}" src="${p.img}" loading="lazy" decoding="async"${p.imgStyle ? ` style="${p.imgStyle}"` : ""}/>
         <span class="soon-badge"><span class="pulse"></span> Coming Soon</span>
       </div>
       <div class="product-body">
